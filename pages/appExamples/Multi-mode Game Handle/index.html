@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangible Interface Collection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="../../../js/d3DrawIcon.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="../../../css/media.css" rel="stylesheet">
+    <link href="../../../css/site-structure.css" rel="stylesheet">
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #030303; }
+        h1 { font-size: 4.5rem; margin: 0; }
+        h2 { font-size: 2.5rem; margin: 0; }
+        h3 { font-size: 1.5rem; margin: 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.72); font-size: 1rem; line-height: 1.65; }
+        .meta { color: rgba(3,3,3,0.9); margin-bottom: 0.9rem; }
+        .shot img { width: 100%; border-radius: 10px; display: block; }
+        .case-block { margin: 4rem 0; }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+<body>
+    <header class="site-topnav">
+        <div class="site-topnav-inner">
+            <a class="site-brand" href="../../../index.html">LaserMorph</a>
+            <nav class="site-nav-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../pages/subpage/MFGuide.html">Mechanism</a>
+                <a href="../../../pages/subpage/library.html">Design Space</a>
+                <a href="../../../pages/subpage/designTool.html">Design Tool</a><a class="active" href="../../../pages/subpage/appExamples.html">Applications</a>
+            </nav>
+        </div>
+    </header>
+    <div style="margin: 2rem 20rem 0 24rem;">
+        <h1 style="margin: 0 0 4rem 0;">Tangible Interfaces</h1>
+        <p>This collection gathers interface-oriented applications in which the material's swelling, softness, translucency, and repeated deformation become interaction resources. The emphasis is on tangible response, environmental activation, and physical feedback rather than only geometric form.</p>
+
+        <section class="case-block">
+            <h2>Rain-after-Nature UI</h2>
+            <div class="row shot g-3" style="margin-bottom: 1.5rem;">
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Multi-mode Game Handle.png" alt="Rain-after-nature UI placeholder"></div>
+            </div>
+            <p>Post-rain natural interface where the material responds to moisture and changing environmental conditions. Water-triggered transformation becomes perceivable interface events.</p>
+        </section>
+
+        <section class="case-block">
+            <h2>Translucent Lampshade</h2>
+            <p class="meta"><strong>Reference</strong></p>
+            <div class="row shot g-3" style="margin-bottom: 1.5rem;">
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Breathable Lamps.png" alt="Translucent lampshade reference"></div>
+                <div class="col-md-6"><img loading="lazy" src="lamp.gif" alt="Translucent lampshade motion placeholder"></div>
+            </div>
+            <p>Swelling geometry and light transmission combined to create soft luminaires whose volumetric form, texture, and optical diffusion change with activation.</p>
+        </section>
+
+        <section class="case-block">
+            <h2>Beach Toys</h2>
+            <p class="meta"><strong>Reference</strong></p>
+            <div class="row shot g-3" style="margin-bottom: 1.5rem;">
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Eyelid Assistive Device.png" alt="Beach toy reference 1"></div>
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Dynamic Elbow Brace.png" alt="Beach toy reference 2"></div>
+            </div>
+            <p>Toys compressed for transport and activated on-site by water. Interface opportunity in paired display or guidance screen explaining states, activation, and play behaviors.</p>
+        </section>
+
+        <section class="case-block">
+            <h2>Tactile Compression Interaction</h2>
+            <p class="meta"><strong>Reference</strong></p>
+            <div class="row shot g-3" style="margin-bottom: 1.5rem;">
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Breathable Lamps.png" alt="Tactile compression reference 1"></div>
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Multi-mode Game Handle.png" alt="Tactile compression reference 2"></div>
+            </div>
+            <p>Squeeze-based tangible interaction: different tactile resistance states, shapes, or deformation patterns linked to real-time audiovisual responses.</p>
+
+            <h3>Tactile Xylophone</h3>
+            <p>One branch of this direction is a tactile xylophone, where different squeeze zones map to different sound and visual feedback. The concept uses material deformation as a direct expressive control channel.</p>
+            <div class="row shot g-3">
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Dynamic Elbow Brace.png" alt="Tactile xylophone placeholder"></div>
+            </div>
+        </section>
+
+        <section class="case-block">
+            <h2>Watering Interaction and Mapping</h2>
+            <p>This ongoing direction explores how watering actions and projection or mapped visualization could be combined. It points toward staged activation, data display, or public demonstration setups in which water becomes both the trigger and the content of interaction.</p>
+        </section>
+
+        <section class="case-block">
+            <h2>Button Interaction</h2>
+            <p>Soft buttons, deformable knobs, and other pressable control elements. Gentle tactile response, visible shape change, and repeatable mechanical behavior.</p>
+            <div class="row shot g-3">
+                <div class="col-md-6"><img loading="lazy" src="sense.gif" alt="Button interaction placeholder 1"></div>
+                <div class="col-md-6"><img loading="lazy" src="../../../resources/img/applicationExamples/Multi-mode Game Handle.png" alt="Button interaction placeholder 2"></div>
+            </div>
+        </section>
+
+        <div style="margin-top: 10rem;"></div>
+    </div>
+    <script>
+        if (typeof drawIcon === 'function') {
+            drawIcon(50 * (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 1728, "icon", false, false);
+        }
+    </script>
+</body>
+</html>

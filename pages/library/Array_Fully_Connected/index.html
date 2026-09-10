@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array – Fully Connected</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="../../../js/d3DrawIcon.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AngeloFaella/DocumentOutline@1.0/outline.css">
+    <script src="../../../js/DocumentOutline.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="../../../css/media.css" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            background-color: #fdfdfd;
+            font-size: calc(1728vw / 1728);
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            color: #030303;
+        }
+        h1 { font-size: 4.5rem; margin: 0; }
+        h2 { font-size: 2.5rem; margin: 0; }
+        h3 { font-size: 1.5rem; margin: 0; }
+        
+        li, p {
+            font-family: 'Noto Sans', sans-serif;
+            color: rgba(3, 3, 3, 0.7);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .design-tool-link, .download-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 12px 25px;
+            color: white !important;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .design-tool-link {
+            background-color: #007bff;
+        }
+        .design-tool-link:hover {
+            background-color: #0056b3;
+        }
+        .download-link {
+            background-color: #28a745;
+            margin-left: 1rem;
+        }
+        .download-link:hover {
+            background-color: #218838;
+        }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+
+<body>
+    <div style="margin: 4rem 20rem 0 24rem;">
+        
+        <h1 class="h1StylePTag content" style="margin: 0 0 2rem 0;">Array – Fully Connected</h1>
+
+        <img loading="lazy" src="Array – Fully Connected_banner.png" alt="Array – Fully Connected KiriInflate structure" style="width: 100%; margin: 2rem 0;">
+
+        <h2 class="content" style="margin: 2rem 0;">How It Works</h2>
+        <p>The Array – Fully Connected KiriInflatable is achieved using a rectangular array of Optimized KiriInflate, in which adjacent columns are fully overlapped and connected. This pattern resembles a monolithic surface patterned with continuous kirigami cuts. The interlocking segments impose mutual constraints, resulting in relatively limited contraction but enhanced elastic restoring force.</p>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Standard Sample Parameters</h2>
+        <ul>
+            <li>Material Thickness: 0.07 mm per side</li>
+            <li>Scale: 64.0 mm × 164.0 mm</li>
+            <li>Single Column Width: 54.0 mm</li>
+            <li>Slit Spacing: 14.0 mm</li>
+            <li>Slip Overlap Distance: 15.0 mm</li>
+            <li>Channel Width: 8.0mm</li>
+            <li>Horizontal array number: 3</li>
+            <li>Vertical array number: 4</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>❗️Please note:</strong> In the design tool, the Single Column Width bar and the Slit Spacing bar jointly determine the resulting Slit Overlap Distance.</p>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Customization Options and Actuation Control</h2>
+        <p>KiriInflate structures offer high programmability of geometric and mechanical properties through customization of slit patterns on 2D surfaces, allowing for rapid formation of stretchable 3D geometries with tailored mechanical behaviors. Key parameters to adjust include:</p>
+        
+        <h3 style="margin-top: 2rem;">Scale</h3>
+        <p>As the overall scale increases, the contraction ratio decreases. As the scale increases, the arch height increases slightly at first, and then drops sharply. Larger inflatables generally increase stretchable length and contraction range, while both contraction and tensile forces increase. However, Increasing sizes may see a slight decrease in contraction ratio due to material resistance. Here we assume that the material resistance plays a dominant role.</p>
+        
+        <h3 style="margin-top: 2rem;">Key Structure Parameter: Slit Overlap Distance</h3>
+        <p>As the overlap distance of slits increases, the contraction ratio increases. As the vertical array number increases, the contraction distance increases; whereas the contraction distance remains similar as the horizontal array number increases.</p>
+        
+        <h3 style="margin-top: 2rem;">Material Thickness</h3>
+        <p>As the thickness increases, the contraction ratio first decreases and then changes only slightly. Theoretically, increasing material thickness reduces deformation due to higher internal stress. However, in this pattern, the slits do not overlap, so the available space for contraction is already limited.</p>
+
+        <img loading="lazy" src="Array – Fully Connected✅❤.png" alt="Visualization of customization options for Array – Fully Connected" style="width: 100%; margin: 2rem 0;">
+
+        <h2 style="margin: 4rem 0 2rem 0;">Design Tool</h2>
+        <p>Click the link below to access the interactive Grasshopper model on ShapeDiver. If you encounter any issues with the online tool, you can also download the Grasshopper source file to use locally.</p>
+        
+        <div>
+            <a href="https://www.shapediver.com/app/m/array-fully-connected?modelStateId=FqULvDz6DRXDlFte" 
+               class="design-tool-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+               Open Interactive Design Tool
+            </a>
+            
+            <a href="Array Fully Connected.gh" 
+               class="download-link" 
+               download>
+               Download .gh File
+            </a>
+        </div>
+
+        <div style="margin-top: 10rem;"></div>
+    </div>
+
+    <script>
+        if (typeof drawIcon === 'function') {
+            drawIcon(50 * (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 1728, "icon", false, false);
+        }
+    </script>
+
+    <script>
+        if (typeof DocumentOutline === 'function') {
+            let outline = new DocumentOutline({
+                backgroundColor: '#2c2c2c',
+                textColor: 'white',
+                textColorLight: 'lightgrey',
+                accentColor: '#858585',
+                defaultOpen: false
+            });
+            if (d3) {
+                d3.select(".outline-nav")
+                    .style("z-index", "99");
+            }
+        }
+    </script>
+
+</body>
+</html>

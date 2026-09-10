@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Space</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="../../../js/d3DrawIcon.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AngeloFaella/DocumentOutline@1.0/outline.css">
+    <script src="../../../js/DocumentOutline.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="../../../css/media.css" rel="stylesheet">
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #030303; }
+        h1 { font-size: 4.5rem; margin: 0; }
+        h2 { font-size: 2.5rem; margin: 0; }
+        h3 { font-size: 1.5rem; margin: 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.7); font-size: 1rem; line-height: 1.6; }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+<body>
+    <div style="margin: 4rem 20rem 0 24rem;">
+        <h1 class="h1StylePTag content" style="margin: 0 0 2rem 0;">Design Space</h1>
+        <p>This page organizes the current design-space exploration into morphology, process, precision, and deformation. It summarizes what kinds of shapes can be made, how the fabrication workflows differ, where the current limits are, and how the material behaves after swelling, drying, and compression.</p>
+        <img loading="lazy" src="1.png" alt="Design space overview" style="width: 100%; margin: 2rem 0;">
+
+        <h2 class="content" style="margin: 2rem 0;">Morphology</h2>
+        <h3 style="margin-top: 2rem;">Geometric Shape Library</h3>
+        <p>This subsection records the geometric-form library tests in more detail. The current focus is on original sloped-surface samples and related material trials, using a 30 mm baseline specimen to compare how angle, spacing, and process settings influence the resulting geometry.</p>
+        <p>The following sample groups were documented for the original slope study: `16W 8000 24`, `16W 8000 24`, `16W 8000 22`, `16W 8000 19`, `16W 8000 19`, `16W 8000 20`, `16W 8000 2x7`, `16W 8000 2x9`, `16W 8000 22`, and `16W 8000 16`.</p>
+        <div class="row" style="margin: 1rem 0;">
+            <div class="col-md-6 mb-3"><img loading="lazy" src="2.gif" alt="Original slope test 16W 8000 24 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="3.png" alt="Original slope test 16W 8000 24 placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="4.gif" alt="Original slope test 16W 8000 24 second set placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="5.png" alt="Original slope test 16W 8000 24 second set placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="6.png" alt="Original slope test 16W 8000 22 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="7.gif" alt="Original slope test 16W 8000 22 placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="8.png" alt="Original slope test 16W 8000 19 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="1.png" alt="Original slope test 16W 8000 19 placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="2.gif" alt="Original slope test 16W 8000 19 second set placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="3.png" alt="Original slope test 16W 8000 19 second set placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="4.gif" alt="Original slope test 16W 8000 20 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="5.png" alt="Original slope test 16W 8000 20 placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="6.png" alt="Original slope test 16W 8000 2x7 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="7.gif" alt="Original slope test 16W 8000 2x7 placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="8.png" alt="Original slope test 16W 8000 2x9 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="1.png" alt="Original slope test 16W 8000 2x9 placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="2.gif" alt="Original slope test 16W 8000 22 final set placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="3.png" alt="Original slope test 16W 8000 22 final set placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="4.gif" alt="Original slope test 16W 8000 16 placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="5.png" alt="Original slope test 16W 8000 16 placeholder 2" style="width: 100%;"></div>
+        </div>
+        <p>Because some angles became too small, the angle test effectively shifted into the gap between the third and fourth sample groups. A second baseline using a 20 mm sample was introduced to continue the comparison.</p>
+        <p style="font-style: italic;">Some of the 20 mm setup records are still only available in Feishu and cannot currently be shown outside that platform.</p>
+        <p>The later geometry tests also explored directional control of bending deformation in both wet and dry conditions.</p>
+        <div class="row" style="margin: 1rem 0;">
+            <div class="col-md-4 mb-3"><img loading="lazy" src="6.png" alt="20 mm slope and bending control placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="7.gif" alt="20 mm slope and bending control placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="8.png" alt="20 mm slope and bending control placeholder 3" style="width: 100%;"></div>
+        </div>
+        <h3 style="margin-top: 2rem;">Material Trials</h3>
+        <p>Material trials were carried out alongside the geometric samples to compare how different material conditions affect the shape result, stability, and deformation behavior.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="1.png" alt="Material trial placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="2.gif" alt="Material trial placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Material trial placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Material trial placeholder 4" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="5.png" alt="Material trial placeholder 5" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="6.png" alt="Material trial placeholder 6" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="7.gif" alt="Material trial placeholder 7" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="8.png" alt="Material trial placeholder 8" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="1.png" alt="Material trial placeholder 9" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="2.gif" alt="Material trial placeholder 10" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Material trial placeholder 11" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Material trial placeholder 12" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="5.png" alt="Material trial placeholder 13" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="6.png" alt="Material trial placeholder 14" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="7.gif" alt="Material trial placeholder 15" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="8.png" alt="Material trial placeholder 16" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="1.png" alt="Material trial placeholder 17" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="2.gif" alt="Material trial placeholder 18" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Material trial placeholder 19" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Material trial placeholder 20" style="width: 100%;"></div>
+        </div>
+        <h3 style="margin-top: 2rem;">Parametric Shapes</h3>
+        <p>This branch tests achievable ranges for slope and curvature. A main focus is the angle range, especially larger inclinations from 0 to 90 degrees. Polygon-count variation is currently paused and will not be expanded for now.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-6 mb-3"><img loading="lazy" src="7.gif" alt="Parametric placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="8.png" alt="Parametric placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="1.png" alt="Parametric placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="2.gif" alt="Parametric placeholder 4" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Parametric placeholder 5" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Parametric placeholder 6" style="width: 100%;"></div>
+        </div>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Process</h2>
+        <h3 style="margin-top: 2rem;">Basic Front-side and Double-sided Engraving</h3>
+        <p>The baseline workflow is single-side front engraving. A second branch studies double-sided engraving as a way to extend the process toward more volumetric and directional forms.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-6 mb-3"><img loading="lazy" src="5.png" alt="Engraving placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="6.png" alt="Engraving placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="7.gif" alt="Engraving placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="8.png" alt="Engraving placeholder 4" style="width: 100%;"></div>
+        </div>
+        <h3 style="margin-top: 2rem;">Vertical-face and Six-face Processes</h3>
+        <p>Vertical-face processing and six-face processing explore more enclosed volumetric fabrication. One target case is a geometry with a recessed facade. This direction appears feasible and is still in progress.</p>
+        <p>Failure records show that long-duration processing can be unstable. One vertical-face test on a 20 W machine at 8000 / 60 burned after about 30 minutes, with four passes producing one hole. Successful six-face tests used top-face settings around 8000 / 80 and vertical-face settings around 3500 / 30, with one-pass, two-pass, or four-pass variants depending on the sample.</p>
+        <p>Some model files and path files are currently missing, and some intermediate records are still only available in Feishu.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="1.png" alt="Process placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="2.gif" alt="Process placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Process placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Process placeholder 4" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="5.png" alt="Process placeholder 5" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="6.png" alt="Process placeholder 6" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="7.gif" alt="Process placeholder 7" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="8.png" alt="Process placeholder 8" style="width: 100%;"></div>
+        </div>
+        <h3 style="margin-top: 2rem;">Planar Modular Assembly and Mortise-and-tenon</h3>
+        <p>Two additional process directions are being archived here: planar modular assemblies for larger composed forms, and mortise-and-tenon style assembly for top-bottom joining through interlocking concave and convex features.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-4 mb-3"><img loading="lazy" src="1.png" alt="Assembly placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="2.gif" alt="Assembly placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="3.png" alt="Assembly placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="4.gif" alt="Assembly placeholder 4" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="5.png" alt="Assembly placeholder 5" style="width: 100%;"></div>
+            <div class="col-md-4 mb-3"><img loading="lazy" src="6.png" alt="Assembly placeholder 6" style="width: 100%;"></div>
+        </div>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Precision</h2>
+        <h3 style="margin-top: 2rem;">Minimum Height</h3>
+        <p>The minimum-height experiment studies how small a reliable stepped height difference can be. A linear height-gradient structure is generated in Rhino / Grasshopper, fabricated, soaked, and allowed to expand fully. The actual step differences are then measured visually, tactually, and with a caliper.</p>
+        <p>Current results indicate that below about 1.5 mm, neighboring regions begin to couple during swelling and the height boundary becomes difficult to reproduce consistently. At 1.5 mm and above, the stepped geometry becomes clearer and more stable. For now, 1.5 mm is treated as the minimum reliable layer height.</p>
+        <h3 style="margin-top: 2rem;">Surface Precision</h3>
+        <p>Single-direction paths leave obvious grooves, and after swelling those grooves can become amplified into ridged or banded surfaces. To reduce this anisotropy, later tests used cross-direction paths, alternating between x and y. This distributes energy more evenly and makes the final surface smoother and more stable. Multi-intensity control remains an open branch for further testing.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-6 mb-3"><img loading="lazy" src="7.gif" alt="Surface precision placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="8.png" alt="Surface precision placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="1.png" alt="Surface precision placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-6 mb-3"><img loading="lazy" src="2.gif" alt="Surface precision placeholder 4" style="width: 100%;"></div>
+        </div>
+        <h3 style="margin-top: 2rem;">Minimum Thickness and Minimum Text</h3>
+        <p>This branch studies minimum hollow-wall thickness and minimum readable engraved text. Current text tests suggest that a 1.0 cm diameter display is recommended, 0.75 cm remains barely legible, and anything smaller is not practical. One letter-U sample sequence used heights of 1.5 cm, 1.0 cm, 0.75 cm, 0.5 cm, 0.4 cm, 0.3 cm, and 0.25 cm.</p>
+        <p>These tests also connect to the broader question of minimum achievable features and maximum achievable object size before modular assembly or self-assembly workflows become necessary.</p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Text precision placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Text precision placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="5.png" alt="Text precision placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="6.png" alt="Text precision placeholder 4" style="width: 100%;"></div>
+        </div>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Deformation</h2>
+        <p>This section studies vertical expansion after wet activation, changes during drying, repeated compression and re-expansion, and whether performance decays after many cycles.</p>
+        <p>In the current compression-recovery workflow, samples are pressed at 120 degrees for 25 seconds. Samples thicker than about 10 mm are hard to hold in the compressed state, so 25 seconds is used as the standard pressing duration. For a stable dry state, samples are dried in a ventilated oven at 120 degrees for 45 minutes before testing.</p>
+        <p>Several observations are already clear. Thicker samples can show lateral offset while still recovering locally. If the user can tolerate this lateral distortion, folding can allow samples to be compressed beyond their nominal range. At 150 degrees, surface yellowing appears more easily and may interfere with recovery, although soaking reduces the severity of that effect.</p>
+        <p>Future branches may include more tests on large objects, highly detailed objects, text, thin walls, twisting-based compression strategies, and appearance changes after 5, 10, or many more compression cycles.</p>
+        <h3 style="margin-top: 2rem;">Sample Links</h3>
+        <p>The current sample archive includes bear, small-car, and test-coupon cases, along with a delayed-drying branch and a possible future direction based on front-back density differences for metamaterial-like deformation. A related reference is MIT Media Lab's Kinetix project.</p>
+        <p><a href="https://www.media.mit.edu/projects/kinetix/overview/" target="_blank" rel="noopener noreferrer">Reference: MIT Media Lab Kinetix</a></p>
+        <div class="row" style="margin: 1rem 0 2rem 0;">
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="7.gif" alt="Deformation placeholder 1" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="8.png" alt="Deformation placeholder 2" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="1.png" alt="Deformation placeholder 3" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="2.gif" alt="Deformation placeholder 4" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="3.png" alt="Deformation placeholder 5" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="4.gif" alt="Deformation placeholder 6" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="5.png" alt="Deformation placeholder 7" style="width: 100%;"></div>
+            <div class="col-md-3 col-6 mb-3"><img loading="lazy" src="6.png" alt="Deformation placeholder 8" style="width: 100%;"></div>
+        </div>
+
+        <div style="margin-top: 10rem;"></div>
+    </div>
+
+    <script>
+        if (typeof drawIcon === 'function') {
+            drawIcon(50 * (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 1728, "icon", false, false);
+        }
+    </script>
+    <script>
+        if (typeof DocumentOutline === 'function') {
+            let outline = new DocumentOutline({
+                backgroundColor: '#2c2c2c',
+                textColor: 'white',
+                textColorLight: 'lightgrey',
+                accentColor: '#858585',
+                defaultOpen: false
+            });
+            if (d3) {
+                d3.select(".outline-nav").style("z-index", "99");
+            }
+        }
+    </script>
+</body>
+</html>

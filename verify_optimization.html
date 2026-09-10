@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>优化验证报告</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        h1 { color: #333; border-bottom: 3px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #007bff; margin-top: 30px; }
+        .issue { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; }
+        .success { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; }
+        .critical { background: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; margin: 15px 0; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #007bff; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .badge-danger { background: #dc3545; color: white; }
+        .badge-warning { background: #ffc107; color: black; }
+        .badge-success { background: #28a745; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 网站性能优化验证报告</h1>
+        
+        <h2>❌ 发现的关键问题</h2>
+        
+        <div class="critical">
+            <h3>问题 1: 懒加载脚本无法阻止视频预加载</h3>
+            <p><strong>原因：</strong></p>
+            <ul>
+                <li>HTML 中已经写死了 <code>&lt;source src="..."&gt;</code></li>
+                <li>浏览器在 DOMContentLoaded 之前就开始加载视频</li>
+                <li>脚本执行时移除 src 已经太晚了</li>
+            </ul>
+            <p><strong>影响：</strong></p>
+            <ul>
+                <li>Design Tool 页面会在加载时尝试加载 50+ 个视频</li>
+                <li>即使视频不可见，也会消耗带宽</li>
+            </ul>
+        </div>
+        
+        <div class="critical">
+            <h3>问题 2: HTML 中的 autoplay 属性强制加载</h3>
+            <p><strong>原因：</strong></p>
+            <ul>
+                <li>所有视频都有 <code>autoplay</code> 属性</li>
+                <li><code>autoplay</code> 会强制浏览器立即加载视频</li>
+                <li>即使设置了 <code>preload="none"</code> 也无效</li>
+            </ul>
+        </div>
+        
+        <div class="issue">
+            <h3>问题 3: 图片尺寸过大</h3>
+            <p>发现 <strong>38 个超过 5MB 的图片</strong>，总计 <strong>301.42 MB</strong></p>
+            <p>最大的文件：</p>
+            <ul>
+                <li>19.88 MB - Rectangle 114.png</li>
+                <li>18.34 MB - fm_Rectangle 112.png</li>
+                <li>18.16 MB - Rectangle 113.png</li>
+            </ul>
+        </div>
+        
+        <h2>✅ 正确的优化方案</h2>
+        
+        <div class="success">
+            <h3>方案 1: 使用 data-src 替代 src（必须）</h3>
+            <p><strong>修改前：</strong></p>
+            <pre>&lt;video autoplay loop muted playsinline&gt;
+    &lt;source src="../../resources/video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</pre>
+            
+            <p><strong>修改后：</strong></p>
+            <pre>&lt;video loop muted playsinline data-lazy="true"&gt;
+    &lt;source data-src="../../resources/video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</pre>
+            
+            <p><strong>关键点：</strong></p>
+            <ul>
+                <li>✅ 移除 <code>autoplay</code> 属性</li>
+                <li>✅ 使用 <code>data-src</code> 而不是 <code>src</code></li>
+                <li>✅ 添加 <code>data-lazy="true"</code> 标记</li>
+                <li>✅ 由 JavaScript 控制加载时机</li>
+            </ul>
+        </div>
+        
+        <div class="success">
+            <h3>方案 2: 优化后的懒加载脚本</h3>
+            <pre>document.addEventListener('DOMContentLoaded', function() {
+    // 查找所有需要懒加载的视频
+    const lazyVideos = document.querySelectorAll('video[data-lazy]');
+    
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const source = video.querySelector('source[data-src]');
+                
+                if (source && source.dataset.src) {
+                    // 设置 src 并加载
+                    source.src = source.dataset.src;
+                    video.load();
+                    video.play().catch(e => console.log('Autoplay blocked'));
+                    video.removeAttribute('data-lazy');
+                }
+            }
+        });
+    }, { rootMargin: '50px' });
+    
+    lazyVideos.forEach(video => videoObserver.observe(video));
+});</pre>
+        </div>
+        
+        <h2>📊 性能对比预估</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>页面</th>
+                    <th>优化前</th>
+                    <th>当前方案</th>
+                    <th>正确方案</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>首页</td>
+                    <td>~40 MB <span class="badge badge-danger">慢</span></td>
+                    <td>~40 MB <span class="badge badge-warning">无效</span></td>
+                    <td>~8 MB <span class="badge badge-success">快</span></td>
+                </tr>
+                <tr>
+                    <td>Design Tool</td>
+                    <td>50+ 视频 <span class="badge badge-danger">卡</span></td>
+                    <td>50+ 视频 <span class="badge badge-danger">仍卡</span></td>
+                    <td>按需加载 <span class="badge badge-success">快</span></td>
+                </tr>
+                <tr>
+                    <td>Applications</td>
+                    <td>~150 MB <span class="badge badge-danger">慢</span></td>
+                    <td>~150 MB <span class="badge badge-warning">略好</span></td>
+                    <td>~20 MB <span class="badge badge-success">快</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>🎯 立即执行的优化步骤</h2>
+        
+        <ol>
+            <li><strong>运行修复脚本</strong> - 将所有 video 的 src 改为 data-src</li>
+            <li><strong>移除所有 autoplay 属性</strong></li>
+            <li><strong>压缩大图片</strong> - 使用 TinyPNG 或 ImageOptim</li>
+            <li><strong>测试验证</strong> - 打开 DevTools Network 面板确认</li>
+        </ol>
+        
+        <h2>🔬 如何验证优化是否生效</h2>
+        
+        <p>打开 Chrome DevTools (F12) → Network 面板：</p>
+        <ol>
+            <li>刷新页面</li>
+            <li>观察是否有视频在页面加载时就开始下载</li>
+            <li>如果看到视频立即下载 → 优化未生效 ❌</li>
+            <li>如果滚动后才看到视频下载 → 优化生效 ✅</li>
+        </ol>
+        
+        <div class="critical">
+            <h3>⚠️ 当前状态</h3>
+            <p>根据分析，当前的懒加载方案<strong>无法有效阻止视频预加载</strong>。</p>
+            <p>原因：HTML 中 src 属性在脚本执行前就已经触发下载。</p>
+            <p><strong>需要立即修复！</strong></p>
+        </div>
+        
+    </div>
+</body>
+</html>

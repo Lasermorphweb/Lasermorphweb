@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanism and Fabrication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="../../js/DocumentOutline.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AngeloFaella/DocumentOutline@1.0/outline.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="../../js/lazy-load.js"></script>
+    <link href="../../css/site-structure.css" rel="stylesheet">
+    <style>
+        html, body { background: #fdfdfd; font-size: calc(1728vw / 1728); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #030303; margin: 0; }
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.72); font-size: 1rem; line-height: 1.65; }
+        .page { margin: 2rem 18rem 6rem 22rem; }
+        img { width: 100%; border-radius: 12px; }
+        @media (max-width: 900px) { .page { margin: 2rem 3rem 6rem 3rem; } }
+    </style>
+</head>
+<body>
+    <header class="site-topnav"><div class="site-topnav-inner"><a class="site-brand" href="../../index.html">LaserMorph</a><nav class="site-nav-links"><a href="../../index.html">Home</a><a class="active" href="./MFGuide.html">Mechanism</a><a href="./library.html">Design Space</a><a href="./designTool.html">Design Tool</a><a href="./appExamples.html">Applications</a></nav></div></header>
+    <main class="page">
+        <h1 class="content" style="margin-bottom: 1.5rem;">Mechanism and Fabrication</h1>
+        <p class="content" style="max-width: 58rem; margin-bottom: 2rem;">The Mechanism and Fabrication section explains the principles and processes behind LaserMorph. It is divided into four main parts: First, it describes how the system works, including the workflow, mechanism, and advantages. Then, it covers the preparation of materials, the environment, and the necessary equipment. The section continues with a detailed fabrication process, including pre-processing, calibration, laser cutting, and activation. Finally, it discusses key laser parameters and provides tips for successful fabrication, along with application examples. Each part provides a clear step-by-step guide to understanding and implementing LaserMorph.</p>
+        <div class="row mb-5">
+            <div class="col-md-10">
+                <a href="https://www.youtube.com/watch?v=Z6qIfrtLf6Q" target="_blank" style="display: block; position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; background: #000;">
+                    <img src="https://img.youtube.com/vi/Z6qIfrtLf6Q/maxresdefault.jpg"
+                         alt="LaserMorph Video"
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 0; height: 0; border-left: 30px solid white; border-top: 18px solid transparent; border-bottom: 18px solid transparent; margin-left: 8px;"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <h2 class="content" style="margin-bottom: 1rem;">Understand How It Works</h2>
+        <p>The Understand How It Works section is organized into three key parts: Workflow, Mechanism, and Advantages. The Workflow section explains the step-by-step process of how LaserMorph operates. The Mechanism part dives into the technical principles behind the transformation from 2D to 3D forms using laser processing. Finally, the Advantages section highlights the benefits of using this method, such as its efficiency and the ability to create complex 3D shapes without the need for intricate models or molds.</p>
+        
+        <h3>Workflow</h3>
+        <div class="row mb-4"><div class="col-md-10"><img loading="lazy" src="../../resources/img/workflow_neo.PNG" alt="Workflow"></div></div>
+        <p>LaserMorph establishes a closed-loop end-to-end computational manufacturing workflow, which involves four key steps: hardware and material calibration, importing or designing the model, laser engraving, and water activation. Each of these steps plays a critical role in ensuring precision, consistency, and efficient transformation of 2D to 3D forms.</p>
+        <ol>
+            <li><strong>Hardware and Material Calibration</strong><br>The first step involves calibrating the hardware and materials to ensure consistency across different power platforms. Users calibrate the system by processing standardized calibration pieces using a defined calibration procedure. This ensures that the parameters remain consistent, allowing for reliable results when transitioning between various laser platforms with different power settings.</li>
+            <li><strong>Importing or Designing the Model</strong><br>In this step, users can either import existing models or design new ones using a parametric design tool integrated into the Rhino/Grasshopper environment. The tool provides real-time 3D physical simulations, enabling users to visualize the final shape before fabrication. Additionally, it offers targeted material selection guidance, helping users choose the best material for their design. This step ensures that the design is optimized for the laser engraving process and allows for adjustments based on simulation feedback.</li>
+            <li><strong>Laser Engraving</strong><br>Once the model is ready, the complex 2.5D height field is converted into laser energy paths. These paths are precisely followed during the engraving process, where a single-pass engraving technique is used to etch the designed geometry into the material. This step is crucial for encoding the geometric potential into the material, preparing it for the final 3D shape transformation.</li>
+            <li><strong>Water Activation</strong><br>The final step in the process is water activation, where moisture triggers the release of the material's "latent volume." In just a few seconds, the material undergoes a dramatic transformation, transitioning from a flat, 2D form into a dynamic 3D shape. This activation step enables LaserMorph to achieve rapid volumetric changes without the need for complex machinery or multi-step assembly, making the process quick and efficient.</li>
+        </ol>
+
+        <h3>Mechanism</h3>
+        <div class="row mb-4"><div class="col-md-10"><img loading="lazy" src="../../resources/mechanism img_straight/Mechanism1-how to  to transform flat 2D designs into 3D volumetric shapes.png" alt="Transform 2D to 3D"></div></div>
+        <p>LaserMorph works by utilizing precise control of laser paths and ablation depth to transform flat 2D designs into 3D volumetric shapes. The process begins by adjusting the laser's speed and power to accurately etch the depth and width of the sponge material. These adjustments allow for pre-volume editing while the material remains unexpanded. By controlling the laser paths, LaserMorph ensures that the material will expand into the desired 3D form after absorbing water, effectively triggering the pre-designed transformation.</p>
+        <p>At the core of LaserMorph is its ability to leverage the high throughput processing capacity of standard laser cutting platforms. This allows design instructions to be quickly encoded into the material within a very short processing time. Unlike traditional methods that might involve complex multi-step processes, LaserMorph can directly transition from a 2D design to a full 3D shape, enabling a much faster and more efficient production process.</p>
+        <p>Laser engraving in LaserMorph is more than just the creation of simple 2D patterns; it involves precise path control that allows the creation of complex 3D geometries with continuous curvatures. This includes generating surfaces with positive and negative Gaussian curvatures, which are typically difficult to achieve with traditional 2D manufacturing methods. Through precise laser path adjustments, LaserMorph can generate these complex shapes while maintaining consistent depth and structure.</p>
+        <p>Another important aspect of the mechanism is the interaction between the laser-engraved material and water. Once the material is laser-engraved, it enters a phase where it is activated by water, which causes the material to expand and release its "latent volume." This rapid volumetric change is what enables LaserMorph to create dynamic 3D shapes from flat 2D forms. The process is extremely quick, taking only a few seconds to transform the material into its final shape.</p>
+        <div class="row mb-4"><div class="col-md-10"><img loading="lazy" src="../../resources/mechanism img_straight/Mechanism2-interaction between the laser-engraved material and water.png" alt="Interaction between laser-engraved material and water"></div></div>
+        <p>In addition, LaserMorph enables reversible transformations. After the material has been activated and transformed into its 3D shape, it can be dried, compressed again, and reactivated multiple times. This ability to repeat the process without the need for new material allows for sustainability and reduces material waste, which is a crucial part of the mechanism.</p>
+        <p>The entire system relies on the precision of laser cutting to encode the geometric design into the material, followed by the water activation to trigger the 3D transformation. This method eliminates the need for complex molds, multi-step assembly, or additive manufacturing, offering a streamlined and efficient alternative for 3D fabrication.</p>
+
+        <h3>Advantages</h3>
+        <p>LaserMorph introduces a novel approach to transforming 2D designs into 3D forms through mold-free, water-activated transformation. By leveraging standard laser cutting platforms, LaserMorph enables rapid fabrication of complex 3D geometries directly from flat 2D sheets. The following are some of its key advantages:</p>
+        <ol>
+            <li><strong>No Molds Required</strong><br>LaserMorph does not require molds or complex assembly steps. It simplifies the manufacturing process by directly encoding 2D designs into 3D forms through laser engraving, without the need for additional tools or molds.</li>
+            <li><strong>Water Activation</strong><br>The use of water to trigger the transformation is a unique feature of LaserMorph. The material undergoes a rapid volumetric change when activated by water, allowing for quick and dynamic shape-shifting from flat to 3D in a matter of seconds.</li>
+            <li><strong>Reusability</strong><br>Unlike many other methods, LaserMorph materials can be reactivated multiple times. After drying, the material can be compressed and then reactivated, allowing for repeated use without consuming new material, supporting sustainability and reducing waste.</li>
+            <li><strong>Low-Cost and Efficient</strong><br>The process is cost-effective, leveraging the high throughput capabilities of standard laser cutting tools. This method avoids the need for expensive machinery, molds, or multi-step assembly, making it more accessible and affordable for rapid prototyping and small-scale production.</li>
+            <li><strong>Compressible for Transport</strong><br>The final 3D objects created with LaserMorph can be compressed back into their flat, 2D form after use. This feature makes the material easy to store and transport, reducing logistics costs and space requirements.</li>
+        </ol>
+        <p>In summary, LaserMorph presents an alternative approach for creating reconfigurable 3D objects, eliminating the need for molds, reducing time and costs, and enabling sustainable and efficient fabrication.</p>
+
+        <h2 class="content" style="margin: 3rem 0 1rem 0;">Material Preparation</h2>
+        <p>This section introduces two key aspects: Material and Equipment. The compressed cellulose sponge is available in various thicknesses, and standard laser cutting platforms are used for engraving the material before the activation process.</p>
+        
+        <h3>Material</h3>
+        <p>Compressed cellulose sponge is the core material used in LaserMorph. It is primarily composed of cellulose, a natural polymer derived from plant fibers, making it biodegradable and environmentally friendly. The material comes in various thicknesses (1mm, 1.5mm, 2mm, 3mm, 6mm, and 10mm) to accommodate different project scales.</p>
+        <p>Upon hydration, the compressed sponge undergoes significant vertical expansion—approximately 10×—transforming from a flat sheet into a volumetric form. After drying, the material can be thermally recompressed (120°C) and reactivated for repeated use. The key feature of LaserMorph is that laser patterning encodes 3D geometry into the planar substrate, and water activation releases the pre-defined volumetric form.</p>
+
+        <h3>Equipment</h3>
+        <p>LaserMorph uses standard laser cutting hardware for planar processing. The method works across different laser platforms—from consumer-grade CO₂ laser cutters to low-cost diode-based systems. Since fabrication results vary across platforms and sponge thicknesses, users first fabricate a standardized calibration sample to identify appropriate processing parameters for their specific setup.</p>
+
+        <h2 class="content" style="margin: 3rem 0 1rem 0;">Fabrication</h2>
+        <p>The LaserMorph manufacturing process involves several essential steps: pre-processing preparation, calibration, laser cutting, and activation. Each step is critical for achieving the precise transformation of 2D designs into 3D shapes. Below is a detailed breakdown of each step.</p>
+        
+        <h3>Pre-processing Preparation</h3>
+        <p>Before laser cutting, ensure the compressed cellulose sponge is flat, dry, and securely placed on the laser bed. Material thickness should be consistent across the working area.</p>
+
+        <h3>Calibration</h3>
+        <p>For the original 20 W setup, use the <a href="./laserCalibration.html" style="color: #030303; text-underline-offset: 4px;">Laser Calibration tool</a> to explore measured groove depths after hydration and interpolate between supported power and speed settings. Other materials, machines and processing conditions require their own calibration.</p>
+        <div class="row mb-4"><div class="col-md-10"><img loading="lazy" src="../../resources/img/Calibration.jpg" alt="Standard Test Sample"></div></div>
+        <p>Since fabrication results vary across laser platforms and sponge thicknesses, users first fabricate a standardized calibration sample to identify appropriate processing parameters for their setup. The calibration process includes:</p>
+        <ol>
+            <li><strong>Parameter Testing:</strong> Test different combinations of power (%), speed (mm/min), and line spacing to find stable processing parameters. Laser power and scan speed determine etching depth—the relationship is monotonic: depth increases with power and decreases with speed.</li>
+            <li><strong>Standard Test Sample:</strong> A calibration card integrates multiple test modules including minimum text (0.75-1.0cm readable), tactile textures, mortise-and-tenon joints, minimum wall thickness (≥0.8mm safe threshold), slope gradients, and complex curvature. This allows users to verify multiple parameters in one processing cycle.</li>
+        </ol>
+        <p>Based on calibration results, the system generates a parameter table mapping target depths (e.g., 0.15mm, 0.20mm, 0.25mm, etc.) to appropriate power and speed settings.</p>
+
+        <h3>Laser Cutting</h3>
+        <p>The laser cutter engraves the material based on design paths, encoding geometric information that triggers 3D transformation during activation. The design tool converts geometric intent into toolpaths, assigning different depths through calibrated power and speed parameters. Output files include DXF path files and G-code for machine execution.</p>
+
+        <h3>Activation</h3>
+        <p>Activation triggers the transformation from planar to volumetric form through material state transitions:</p>
+        <ol>
+            <li><strong>Hydration (Latent → Activated):</strong> Immersion in water triggers rapid out-of-plane expansion, approximately 10× in the vertical direction. The material becomes soft and compliant, revealing the encoded 3D geometry.</li>
+            <li><strong>Sealing (Activated → Maintained):</strong> Applying a physical barrier (e.g., plastic film or paraffin) slows evaporation and prolongs the compliant state for extended tangible interaction.</li>
+            <li><strong>Dehydration (Activated → Locked):</strong> As moisture evaporates naturally or through forced air, the cellulose fibers re-link and the material hardens. The expanded geometry stabilizes into a rigid, self-supporting structure.</li>
+            <li><strong>Compression (Locked → Latent):</strong> Heating (120°C) and pressing flattens the dried object into a compact planar state, enabling storage, transport, and subsequent reactivation across repeated cycles.</li>
+        </ol>
+    </main>
+    <script>
+        if (typeof DocumentOutline === 'function') {
+            new DocumentOutline({ backgroundColor: '#2c2c2c', textColor: 'white', textColorLight: 'lightgrey', accentColor: '#858585', defaultOpen: false, maxDepth: 3 });
+        }
+    </script>
+</body>
+</html>

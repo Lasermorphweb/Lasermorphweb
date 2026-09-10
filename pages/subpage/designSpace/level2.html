@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2: Complex Curves - LaserMorph Design Space</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); margin: 0; padding: 0; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #030303; margin: 0; }
+        h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.8rem; margin: 2rem 0 1rem 0; }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.75); font-size: 1rem; line-height: 1.7; }
+        .main { margin: 2rem 18rem 4rem 22rem; padding-top: 80px; }
+        .img-container { display: flex; flex-direction: column; align-items: center; margin-top: 25px; }
+        .img-container img { width: 440px; max-height: 380px; object-fit: contain; border-radius: 0; }
+        .img-caption { font-size: 0.7em; color: rgba(0,0,0,0.5); margin-top: 5px; text-align: center; }
+        .breadcrumb { font-family: 'Noto Sans', sans-serif; font-size: 0.85rem; color: rgba(3,3,3,0.6); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: rgba(3,3,3,0.7); text-decoration: none; }
+        .breadcrumb a:hover { color: #030303; text-decoration: underline; }
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(253, 253, 253, 0.92); border-bottom: 1px solid rgba(3, 3, 3, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .topbar-inner { margin: 0 6rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
+        .topbar-brand { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; text-decoration: none; }
+        .topbar-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .topbar-nav a { text-decoration: none; color: rgba(3,3,3,0.75); font-family: 'Noto Sans', sans-serif; font-size: 0.95rem; border-bottom: 2px solid transparent; }
+        .topbar-nav a.active, .topbar-nav a:hover { color: #030303; border-bottom-color: #030303; }
+        ol, ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        @media (max-width: 1200px) { .main { margin: 2rem 10rem 4rem 12rem; } }
+        @media (max-width: 768px) { .main { margin: 2rem 3rem 4rem 3rem; } .topbar-inner { margin: 0 2rem; } }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="../../../index.html">LaserMorph</a>
+            <nav class="topbar-nav">
+                <a href="../../../index.html">Home</a>
+                <a href="../MFGuide.html">Mechanism</a>
+                <a class="active" href="../library.html">Design Space</a>
+                <a href="../designTool.html">Design Tool</a>
+                <a href="../appExamples.html">Applications</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main">
+        <p class="breadcrumb"><a href="../library.html">Design Space</a> / <a href="../library.html">Shapes</a> / Level 2: Complex Curves</p>
+        <h1>Level 2: Complex Curves</h1>
+        
+        <p>Level 2: Complex Curves differs from Level 1: Single Bends by introducing composite curvature into the design process. While Level 1 focuses on simple single curvature, Level 2 uses a more sophisticated topology that controls both positive and negative curvature within the same surface. This system enables the formation of complex geometric structures like negative Gaussian curvature surfaces, such as the Anisotropic surface, which demonstrates the material's ability to respond to and control internal stresses. The core of Level 2 is the encoding of opposing energy patterns within the same area, giving rise to controlled anisotropic material behavior. By using composite curvature, designers can now create structures that manipulate internal forces to achieve more intricate and responsive forms.</p>
+        
+        <div class="img-container">
+            <img loading="lazy" src="../../../resources/img/level2.png" alt="Level 2: Complex Curves">
+            <p class="img-caption">Level 2: Complex Curves</p>
+        </div>
+
+        <h2>Process</h2>
+        <ol>
+            <li><strong>Create the Base Model (Initial Shape):</strong> Start by creating a simple base shape, such as a flat surface or cube, in your design software. This will serve as the foundation for applying composite curvature.</li>
+            <li><strong>Define the Composite Curvature:</strong> On the surface of the base shape, draw a composite curvature curve. Unlike the single curvature in Level 1, composite curvature involves defining both positive and negative curvatures. These curvatures will result in complex patterns and internal stresses that will eventually influence the material's expansion.</li>
+            <li><strong>Apply Curvature Control:</strong> Using your design tool, apply the curvature control across the surface. Adjust the positive and negative energy patterns in specific areas to create a surface that exhibits negative Gaussian curvature, such as Anisotropic surfaces. These areas will respond differently to external and internal forces, showcasing material behavior beyond simple bending.</li>
+            <li><strong>Generate the Final Complex Curve:</strong> Once the curvature is defined, rotate the surface or apply the relevant transformation to create the final complex curve. This step integrates the composite curvature and will result in a shape that not only bends but also responds to forces in a more controlled and dynamic manner.</li>
+            <li><strong>Test the Surface Behavior:</strong> After generating the surface, test the material's behavior under different conditions (e.g., stretching, bending, or applying stress). Observe how the surface adapts and reacts to internal forces, confirming the effectiveness of composite curvature in controlling material response.</li>
+        </ol>
+    </div>
+</body>
+</html>

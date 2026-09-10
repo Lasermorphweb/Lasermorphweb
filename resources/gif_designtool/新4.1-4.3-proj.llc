@@ -1,0 +1,42 @@
+{
+  version: 2,
+  mediaFileName: '新4.1-4.3.mp4',
+  cutSegments: [
+    {
+      start: 9.103919,
+      end: 10.962535,
+      name: 'caserestoration_vehicle',
+      selected: true,
+    },
+    {
+      start: 29.054939,
+      end: 30.48045,
+      name: 'caserestoration_vehicle',
+      selected: true,
+    },
+    {
+      start: 90.225921,
+      end: 93.445759,
+      name: 'caserestoration_rabbit',
+      selected: true,
+    },
+    {
+      start: 100.856028,
+      end: 102.519345,
+      name: 'caserestoration_rabbit',
+      selected: true,
+    },
+    {
+      start: 113.02884896875,
+      end: 114.035927,
+      name: 'caserestoration_rabbit',
+      selected: true,
+    },
+    {
+      start: 217.313999,
+      end: 219.076419,
+      name: 'caserestoration_rabbit',
+      selected: true,
+    },
+  ],
+}

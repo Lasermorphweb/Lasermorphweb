@@ -1,0 +1,12 @@
+{
+  version: 2,
+  mediaFileName: 'fb14e237f850fa4138f5c1c347f2756e.mp4',
+  cutSegments: [
+    {
+      start: 14.799084862068966,
+      end: 16.707482666666667,
+      name: '',
+      selected: true,
+    },
+  ],
+}

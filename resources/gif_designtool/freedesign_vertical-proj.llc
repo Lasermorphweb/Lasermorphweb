@@ -1,0 +1,18 @@
+{
+  version: 2,
+  mediaFileName: 'freedesign_vertical.mp4',
+  cutSegments: [
+    {
+      start: 13.809557,
+      end: 14.978971,
+      name: 'freedesign_vertical',
+      selected: true,
+    },
+    {
+      start: 23.937782,
+      end: 25.326389,
+      name: 'freedesign_vertical',
+      selected: true,
+    },
+  ],
+}

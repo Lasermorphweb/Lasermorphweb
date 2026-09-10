@@ -1,0 +1,48 @@
+{
+  version: 2,
+  mediaFileName: '新4.4.mp4',
+  cutSegments: [
+    {
+      start: 8.175576736111111,
+      end: 9.851046,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+    {
+      start: 16.060944,
+      end: 17.620465,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+    {
+      start: 19.742931,
+      end: 21.0025,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+    {
+      start: 24.742208,
+      end: 26.543834,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+    {
+      start: 31.584511,
+      end: 33.094559,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+    {
+      start: 38.299122,
+      end: 39.86127,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+    {
+      start: 48.799016,
+      end: 50.167224,
+      name: 'caserestoration_uist',
+      selected: true,
+    },
+  ],
+}

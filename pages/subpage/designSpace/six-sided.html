@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six-sided - LaserMorph Design Space</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); margin: 0; padding: 0; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #030303; margin: 0; }
+        h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.8rem; margin: 2rem 0 1rem 0; }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.75); font-size: 1rem; line-height: 1.7; }
+        .main { margin: 2rem 18rem 4rem 22rem; padding-top: 80px; }
+        .img-container { display: flex; flex-direction: column; align-items: center; margin-top: 25px; }
+        .img-container img { width: 440px; max-height: 380px; object-fit: contain; border-radius: 0; }
+        .img-caption { font-size: 0.7em; color: rgba(0,0,0,0.5); margin-top: 5px; text-align: center; }
+        .breadcrumb { font-family: 'Noto Sans', sans-serif; font-size: 0.85rem; color: rgba(3,3,3,0.6); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: rgba(3,3,3,0.7); text-decoration: none; }
+        .breadcrumb a:hover { color: #030303; text-decoration: underline; }
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(253, 253, 253, 0.92); border-bottom: 1px solid rgba(3, 3, 3, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .topbar-inner { margin: 0 6rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
+        .topbar-brand { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; text-decoration: none; }
+        .topbar-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .topbar-nav a { text-decoration: none; color: rgba(3,3,3,0.75); font-family: 'Noto Sans', sans-serif; font-size: 0.95rem; border-bottom: 2px solid transparent; }
+        .topbar-nav a.active, .topbar-nav a:hover { color: #030303; border-bottom-color: #030303; }
+        ol, ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        @media (max-width: 1200px) { .main { margin: 2rem 10rem 4rem 12rem; } }
+        @media (max-width: 768px) { .main { margin: 2rem 3rem 4rem 3rem; } .topbar-inner { margin: 0 2rem; } }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="../../../index.html">LaserMorph</a>
+            <nav class="topbar-nav">
+                <a href="../../../index.html">Home</a>
+                <a href="../MFGuide.html">Mechanism</a>
+                <a class="active" href="../library.html">Design Space</a>
+                <a href="../designTool.html">Design Tool</a>
+                <a href="../appExamples.html">Applications</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main">
+        <p class="breadcrumb"><a href="../library.html">Design Space</a> / <a href="../library.html">Scalability</a> / Six-sided</p>
+        <h1>Six-sided</h1>
+        
+        <p>Six-sided carving combines the techniques of single-sided, double-sided, and side-plane carving to cut all six faces of a material. This approach is perfect for creating fully enclosed 3D shapes by processing each side separately. It involves cutting the top and bottom faces first, followed by the four side faces, and ensures that all parts of the model are carved.</p>
+        
+        <div class="img-container">
+            <img loading="lazy" src="../../../resources/img/sixsided.png" alt="Six-sided">
+            <p class="img-caption">Six-sided Carving</p>
+        </div>
+
+        <h2>Process</h2>
+        <ol>
+            <li><strong>Slice the Model into Six Faces:</strong> Start by slicing the model into six faces. Organize and unfold these faces into a flat layout in the design tool.</li>
+            <li><strong>Generate Cutting Paths:</strong>
+                <ul>
+                    <li><strong>Top Face:</strong> Generate the cutting path for the top face using standard cutting parameters.</li>
+                    <li><strong>Vertical Faces:</strong> Adjust the parameters for the vertical faces, ensuring compression in the vertical direction and no significant deformation in the horizontal direction.</li>
+                </ul>
+            </li>
+            <li><strong>Clamping and Calibration:</strong> Use a fixture to securely clamp the material, adjusting the clamping states as needed throughout the process.</li>
+            <li><strong>Cutting Process:</strong>
+                <ul>
+                    <li><strong>Top Face:</strong> Start by cutting the top face of the model.</li>
+                    <li><strong>Flip the Material:</strong> After cutting the top face, flip the material (like a book) and rotate it 90 degrees.</li>
+                    <li><strong>Back Face:</strong> Cut the back face using the generated cutting path.</li>
+                    <li><strong>Vertical Clamping:</strong> After cutting the top and back faces, clamp the material vertically for the remaining cuts.</li>
+                    <li><strong>Side Faces:</strong> Cut the four side faces in sequence using the adjusted parameters for vertical compression.</li>
+                </ul>
+            </li>
+            <li><strong>Completion:</strong> After cutting all six faces, the model will be fully carved and ready for further processing or activation.</li>
+        </ol>
+        
+        <div class="img-container">
+            <img loading="lazy" src="../../../resources/img/scalabilitypic/工艺-六面.png" alt="Six-sided Process">
+            <p class="img-caption">Six-sided Process</p>
+        </div>
+
+        <h2>Model Download</h2>
+        <p><a href="../../../resources/new_model/放在design space-scalability6面和立面/Clamp.3dm" download style="color: rgba(3,3,3,0.75);">Clamp.3dm</a></p>
+    </div>
+</body>
+</html>

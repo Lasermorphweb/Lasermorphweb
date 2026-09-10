@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radial Slit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="../../../js/d3DrawIcon.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AngeloFaella/DocumentOutline@1.0/outline.css">
+    <script src="../../../js/DocumentOutline.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="../../../css/media.css" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            background-color: #fdfdfd;
+            font-size: calc(1728vw / 1728);
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            color: #030303;
+        }
+        h1 { font-size: 4.5rem; margin: 0; }
+        h2 { font-size: 2.5rem; margin: 0; }
+        h3 { font-size: 1.5rem; margin: 0; }
+        
+        li, p {
+            font-family: 'Noto Sans', sans-serif;
+            color: rgba(3, 3, 3, 0.7);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .design-tool-link, .download-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 12px 25px;
+            color: white !important;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .design-tool-link {
+            background-color: #007bff;
+        }
+        .design-tool-link:hover {
+            background-color: #0056b3;
+        }
+        .download-link {
+            background-color: #28a745;
+            margin-left: 1rem;
+        }
+        .download-link:hover {
+            background-color: #218838;
+        }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+
+<body>
+    <div style="margin: 4rem 20rem 0 24rem;">
+        
+        <h1 class="h1StylePTag content" style="margin: 0 0 2rem 0;">Radial Slit</h1>
+
+        <img loading="lazy" src="3D Structure with Strechability – Radial Slit_banner.png" alt="Radial Slit KiriInflate structure" style="width: 100%; margin: 2rem 0;">
+
+        <h2 class="content" style="margin: 2rem 0;">How It Works</h2>
+        <p>The Radial Slit KiriInflate features a radial slit pattern that emanates from the center, resembling a single column of Conventional Kirigami (as presented in Primitives) wrapped into a circular ring. This design enables a transformation from a 2D toroidal (donut-shaped) configuration to a 3D cylindrical shape upon inflation. This pattern grants the structure adaptability to cylindrical or spherical surfaces of varying diameters, making it suitable for integration with deformable biological tissues such as limbs, fingers, the abdomen, and even the heart.</p>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Standard Sample Parameters</h2>
+        <ul>
+            <li>Material Thickness: 0.07 mm per side</li>
+            <li>Scale: 30.0 mm × 30.0 mm</li>
+            <li>Slit overlap distance: 4.8 mm</li>
+            <li>Outer Slit Length: 8.0 mm</li>
+            <li>Inner Slit Length: 8.0mm</li>
+            <li>Central Slit Length: 13.0mm</li>
+            <li>Outer Circle Radius: 30.0 mm</li>
+            <li>Inner Circle Radius: 10.0 mm</li>
+            <li>Number of Equal Divisions: 18</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>❗️Please note:</strong> In the design tool, Users can adjust the Slit Overlap Distance by modifying the Central Slit Position bar.</p>
+
+        <h2 style="margin: 4rem 0 2rem 0;">Customization Options and Actuation Control</h2>
+        <p>KiriInflate structures offer high programmability of geometric and mechanical properties through customization of slit patterns on 2D surfaces, allowing for rapid formation of stretchable 3D geometries with tailored mechanical behaviors. Key parameters to adjust include:</p>
+        
+        <h3 style="margin-top: 2rem;">Scale</h3>
+        <p>As the scale increases, both the contraction ratio and the taper angle decrease. Larger inflatables generally increase stretchable length and contraction range, while both contraction and tensile forces increase. However, Increasing sizes may see a slight decrease in contraction ratio due to material resistance. Here we assume that the material resistance plays a dominant role.</p>
+        
+        <h3 style="margin-top: 2rem;">Key Structure Parameter: Slit Overlap Distance</h3>
+        <p>As the slit overlap distance increase, the contraction ratio first increases and then decreases, while the taper angle first decreases and then increases.</p>
+        
+        <h3 style="margin-top: 2rem;">Material Thickness</h3>
+        <p>As the thickness increases, the contraction ratio decreases progressively, while the taper angle remains nearly unchanged at first but drops sharply at a certain thickness.</p>
+
+        <img loading="lazy" src="3D Structure with Strechability – Radial Slit✅❤.png" alt="Visualization of customization options for the Radial Slit" style="width: 100%; margin: 2rem 0;">
+
+        <h2 style="margin: 4rem 0 2rem 0;">Design Tool</h2>
+        <p>Click the link below to access the interactive Grasshopper model on ShapeDiver. If you encounter any issues with the online tool, you can also download the Grasshopper source file to use locally.</p>
+        
+        <div>
+            <a href="https://www.shapediver.com/app/m/3d-structure-with-strechability-radial-slit?modelStateId=j8uIDcMhMjsgskqj" 
+               class="design-tool-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+               Open Interactive Design Tool
+            </a>
+            
+            <a href="Radial_Slit.gh" 
+               class="download-link" 
+               download>
+               Download .gh File
+            </a>
+        </div>
+
+        <div style="margin-top: 10rem;"></div>
+    </div>
+
+    <script>
+        if (typeof drawIcon === 'function') {
+            drawIcon(50 * (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 1728, "icon", false, false);
+        }
+    </script>
+
+    <script>
+        if (typeof DocumentOutline === 'function') {
+            let outline = new DocumentOutline({
+                backgroundColor: '#2c2c2c',
+                textColor: 'white',
+                textColorLight: 'lightgrey',
+                accentColor: '#858585',
+                defaultOpen: false
+            });
+            if (d3) {
+                d3.select(".outline-nav")
+                    .style("z-index", "99");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+{
+  version: 2,
+  mediaFileName: '新3.1-3.3.mp4',
+  cutSegments: [
+    {
+      start: 17.883072,
+      end: 19.178766,
+      name: 'creativewidget_alphanumeric',
+      selected: true,
+    },
+    {
+      start: 26.570175,
+      end: 28.976085,
+      name: 'creativewidget_alphanumeric',
+      selected: true,
+    },
+    {
+      start: 33.352335,
+      end: 34.938658,
+      name: 'creativewidget_alphanumeric',
+      selected: true,
+    },
+    {
+      start: 35.198408,
+      end: 36.687722,
+      name: 'creativewidget_alphanumeric',
+      selected: true,
+    },
+    {
+      start: 57.700131,
+      end: 59.760568,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 63.561533564814816,
+      end: 67.20055266203704,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 70.864602,
+      end: 73.182124,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 77.092439,
+      end: 79.043758,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 81.5055,
+      end: 83.651193,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 86.203804,
+      end: 88.192991,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 90.7328761574074,
+      end: 93.451487,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 97.890381,
+      end: 99.46652199074073,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 115.891515,
+      end: 116.840597,
+      name: 'creativewidget_aquaticplants',
+      selected: true,
+    },
+    {
+      start: 185.123061,
+      end: 189.121637,
+      name: 'creativewidget_city',
+      selected: true,
+    },
+    {
+      start: 199.790998,
+      end: 206.709154,
+      name: 'creativewidget_city',
+      selected: true,
+    },
+    {
+      start: 213.737237,
+      end: 217.795349,
+      name: 'creativewidget_city',
+      selected: true,
+    },
+    {
+      start: 225.88247,
+      end: 228.637108,
+      name: 'creativewidget_city',
+      selected: true,
+    },
+  ],
+}

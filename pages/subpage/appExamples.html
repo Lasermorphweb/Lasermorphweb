@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Examples</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="../../js/lazy-load.js"></script>
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); }
+        h1 { font-family: 'DM Serif Display', serif; color: #030303; font-size: 4.5rem; margin: 0; }
+        h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #030303; margin: 0; }
+        h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #030303; margin: 0; }
+        h4 { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: #030303; margin: 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3, 3, 3, 0.7); font-size: 1rem; margin-bottom: 0.3rem; }
+        .main { margin: 2rem 18rem 0 18rem; }
+        a { text-decoration: none; }
+        .app-card {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .app-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+        .app-card img { width: 100%; height: 220px; object-fit: contain; border-radius: 15px; background: #000; }
+        .app-entry-title { color: #fff; font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 12px 0 0 0; text-align: center; font-weight: bold; }
+        .app-entry-desc { color: rgba(255,255,255,0.8); font-family: 'Noto Sans', sans-serif; font-size: 0.9rem; line-height: 1.5; margin-top: 10px; text-align: left; }
+        .app-grid { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; }
+        .app-entry { flex: 1 1 280px; min-width: 280px; max-width: 400px; margin-bottom: 0; }
+        .app-subsubtitle { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; margin: 0 0 0.8rem 0; }
+        .app-category { margin-bottom: 2rem; margin-top: 25px; }
+        .category-desc { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.75); font-size: 1.05rem; line-height: 1.7; margin: 0 0 1.5rem 0; }
+        .divToggle { margin: 2rem 0 0 0; }
+        .divHeader { display: flex; align-items: center; border-bottom: 3px solid #030303; justify-content: space-between; padding-bottom: 20px; cursor: pointer; }
+        .divToggleContent { display: none; }
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(253, 253, 253, 0.92);
+            border-bottom: 1px solid rgba(3, 3, 3, 0.15);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        }
+        .topbar-inner { margin: 0 6rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
+        .topbar-brand { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; text-decoration: none; }
+        .topbar-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .topbar-nav a { text-decoration: none; color: rgba(3,3,3,0.75); font-family: 'Noto Sans', sans-serif; font-size: 0.95rem; border-bottom: 2px solid transparent; }
+        .topbar-nav a.active, .topbar-nav a:hover { color: #030303; border-bottom-color: #030303; }
+        @media (max-width: 1200px) { .app-entry { min-width: 250px; } }
+        @media (max-width: 992px) { .main { margin: 2rem 10rem 0 10rem; } }
+        @media (max-width: 768px) { .main { margin: 2rem 4rem 0 4rem; } .topbar-inner { margin: 0 2.5rem; } .app-entry { min-width: 220px; } }
+        @media (max-width: 480px) { .app-entry { min-width: 100%; flex: 1 1 100%; } }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="../../index.html">LaserMorph</a>
+            <nav class="topbar-nav">
+                <a href="../../index.html">Home</a>
+                <a href="./MFGuide.html">Mechanism</a>
+                <a href="./library.html">Design Space</a>
+                <a href="./designTool.html">Design Tool</a>
+                <a class="active" href="./appExamples.html">Applications</a>
+            </nav>
+        </div>
+    </header>
+    <div>
+        <div class="main">
+            <p style="font-family: 'DM Serif Display', serif; color: #030303; font-size: 4.5rem; margin: 0 0 6rem 0;">Application Examples</p>
+            <div class="container-fluid">
+
+                <!-- Rapid Prototyping -->
+                <div class="divToggle">
+                    <div class="divHeader" onclick="detailItem(this)">
+                        <h2>Rapid Prototyping</h2>
+                        <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle" style="width: 4rem; margin-right: 3rem;">
+                    </div>
+                    <div class="divToggleContent">
+                        <p class="category-desc" style="margin-top: 25px;">This group focuses on early-stage form exploration, where the main goal is to quickly evaluate overall volume, proportion, and spatial structure rather than fine-detail accuracy. LaserMorph supports fast transitions from planar design to physical 3D approximation, a recognized need in low-fidelity prototyping workflows.</p>
+                        
+                        <div class="app-category">
+                            <h3 class="app-subsubtitle">Product Design Prototypes</h3>
+                            <p class="category-desc" style="margin-bottom: 1rem;">LaserMorph optimizes early-stage prototyping by prioritizing rapid form evaluation over fine-detail precision. It significantly bypasses FDM's deposition-based bottlenecks, reducing fabrication time from hours to minutes.</p>
+                            <div class="app-grid">
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Audio Player/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Audio Player_fm.png" alt="Audio Player">
+                                            <p class="app-entry-title">Audio Player</p>
+                                            <p class="app-entry-desc">Compact audio player enclosure for hand-sized electronic product prototyping, testing body volume and surface transitions.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Game Console/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Game console_fm.png" alt="Game Console">
+                                            <p class="app-entry-title">Game Console</p>
+                                            <p class="app-entry-desc">Handheld entertainment hardware prototype emphasizing massing, interaction zones, and balance between tactile contact and volumetric presence.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Knob Switch/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Knob switch_fm.png" alt="Knob Switch">
+                                            <p class="app-entry-title">Knob Switch</p>
+                                            <p class="app-entry-desc">Rotary interaction components as rapidly fabricated tactile controls, evaluating grip and rotational affordance.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Microphone/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Microphone_fm.png" alt="Microphone">
+                                            <p class="app-entry-title">Microphone</p>
+                                            <p class="app-entry-desc">Microphone-like handheld object with distinct head-and-handle geometry for evaluating grasp and silhouette recognition.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Radio/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Radio_fm.png" alt="Radio">
+                                            <p class="app-entry-title">Radio</p>
+                                            <p class="app-entry-desc">Compact radio form factors studying front-facing interface composition and enclosure proportioning.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Speaker/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Speaker_fm.png" alt="Speaker">
+                                            <p class="app-entry-title">Speaker</p>
+                                            <p class="app-entry-desc">Volumetric audio product prototype. A soft expanded body communicates acoustic enclosure, frontality, and product presence through silhouette, stance, and proportion.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-category">
+                            <h3 class="app-subsubtitle">Architectural and Urban Modeling</h3>
+                            <p class="category-desc" style="margin-bottom: 1rem;">To overcome single-bed scalability limits—a persistent challenge in human-scale fabrication—we developed modular X–Y tiling and mortise-and-tenon joints for large-scale architectural models.</p>
+                            <div class="app-grid">
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Architectural and Urban Modeling/Kimbell Art Museum/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Architectural and Urban Modeling/fm_Kimbell Art Museum0.JPG" alt="Kimbell Art Museum">
+                                            <p class="app-entry-title">Kimbell Art Museum</p>
+                                            <p class="app-entry-desc">Large-scale architectural modeling demonstrating planar subdivision, mortise-and-tenon assembly, and Z-axis stacking for macro-scale models.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Architectural and Urban Modeling/Splicing Cities/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Architectural and Urban Modeling/Splicing Cities_fm.JPG" alt="Splicing Cities">
+                                            <p class="app-entry-title">LaserMorph City</p>
+                                            <p class="app-entry-desc">Urban-scale modular modeling with decomposed terrain and building units for updateable planning sandboxes.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="app-entry">
+                                    <a href="../appExamples/1.Rapid Prototyping/Architectural and Urban Modeling/Vertical building/index.html">
+                                        <div class="app-card">
+                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Architectural and Urban Modeling/Vertical building_fm.JPG.png" alt="Vertical Building">
+                                            <p class="app-entry-title">Vertical Building</p>
+                                            <p class="app-entry-desc">Exploration of flat typographic footprints transformed into tall, legible vertical forms through controlled expansion and stacking.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sustainable and Logistics-Oriented Uses -->
+                <div class="divToggle">
+                    <div class="divHeader" onclick="detailItem(this)">
+                        <h2>Sustainable and Logistics-Oriented Uses</h2>
+                        <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle" style="width: 4rem; margin-right: 3rem;">
+                    </div>
+                    <div class="divToggleContent">
+                        <p class="category-desc" style="margin-top: 25px;">This group emphasizes the relationship between planar storage, volumetric deployment, and the use of biodegradable materials. These cases show how LaserMorph can be used in scenarios where compact transport and on-demand expansion are as important as the final geometry itself.</p>
+                        <div class="app-grid">
+                            <div class="app-entry">
+                                <a href="../appExamples/2.Sustainable and Logistics-Oriented Uses/Sustainable Conformal Packaging/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/2.Sustainable and Logistics-Oriented Uses/Sustainable Conformal Packaging/fm_Rectangle 112.png" alt="Sustainable Conformal Packaging">
+                                        <p class="app-entry-title">Sustainable Conformal Packaging</p>
+                                        <p class="app-entry-desc">Custom cushioning for fragile or irregular items like strawberries and glassware. Structures transition from flat-packed sheets into shape-conforming 3D cushions upon activation.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/2.Sustainable and Logistics-Oriented Uses/Marathon Cooling Sponge/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/2.Sustainable and Logistics-Oriented Uses/Marathon Cooling Sponge/fm_image 67.png" alt="Marathon Cooling Sponge">
+                                        <p class="app-entry-title">Marathon Cooling Sponge</p>
+                                        <p class="app-entry-desc">Event-specific 3D forms encoded into flat sheets for compact distribution. After hydration, they expand into high-surface-area geometries suitable for evaporative cooling.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/2.Sustainable and Logistics-Oriented Uses/Aquatic Habitat/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/2.Sustainable and Logistics-Oriented Uses/Aquatic Habitat/fm_Rectangle 115.png" alt="Aquatic Habitat">
+                                        <p class="app-entry-title">Aquatic Habitat</p>
+                                        <p class="app-entry-desc">Cellulose-based scaffolds, including artificial seagrass and sheltering arches, provide compliant and biodegradable structures for small aquatic or semi-aquatic environments.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/2.Sustainable and Logistics-Oriented Uses/Beach Toys/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/2.Sustainable and Logistics-Oriented Uses/Beach Toys/fm_1U2A6597 1.png" alt="Beach Toys">
+                                        <p class="app-entry-title">Beach Toys</p>
+                                        <p class="app-entry-desc">Ultra-thin flat-packed toys expand upon contact with seawater, reducing storage volume and the need for durable plastic bodies.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/2.Sustainable and Logistics-Oriented Uses/Interlocking Storage Box/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/2.Sustainable and Logistics-Oriented Uses/Interlocking Storage Box/fm_M.png" alt="Interlocking Storage Box">
+                                        <p class="app-entry-title">Interlocking Storage Box</p>
+                                        <p class="app-entry-desc">Self-locking containers use micro mortise-and-tenon joints for glue-free assembly, supporting small-object storage and repeated reuse through thermal resetting.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Everyday Objects -->
+                <div class="divToggle">
+                    <div class="divHeader" onclick="detailItem(this)">
+                        <h2>Enhanced Everyday Objects</h2>
+                        <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle" style="width: 4rem; margin-right: 3rem;">
+                    </div>
+                    <div class="divToggleContent">
+                        <p class="category-desc" style="margin-top: 25px;">This group explores how local geometric programming can enrich familiar sponge-based objects with differentiated functions. Rather than creating entirely new artifact categories, these cases show how LaserMorph can augment everyday objects through internal structural variation. At the same time, we also explored how LaserMorph utilizes material properties for aesthetic design expression.</p>
+                        <div class="app-grid">
+                            <div class="app-entry">
+                                <a href="../appExamples/3.Enhanced Everyday Objects/3D Bath Sponge/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/3.Enhanced Everyday Objects/3D Bath Sponge/image 66.png" alt="3D Volumetric Bath Sponge">
+                                        <p class="app-entry-title">3D Volumetric Bath Sponge</p>
+                                        <p class="app-entry-desc">Transcending conventional 2D-printed sponges, LaserMorph creates true 3D characters from a single flat sheet, transforming static graphics into tactile, volumetric bath products.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/3.Enhanced Everyday Objects/Dual-texture Scrubber/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/3.Enhanced Everyday Objects/Dual-texture Scrubber/image 65.png" alt="Dual-texture Scrubber">
+                                        <p class="app-entry-title">Dual-texture Scrubber</p>
+                                        <p class="app-entry-desc">Double-sided engraving integrates sparse and dense tooth patterns into a single substrate, supporting both gentle and aggressive cleaning.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/3.Enhanced Everyday Objects/Ergonomic Wrist Rest/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/3.Enhanced Everyday Objects/Wrist Rest/image 72.png" alt="Ergonomic Wrist Rest">
+                                        <p class="app-entry-title">Ergonomic Wrist Rest</p>
+                                        <p class="app-entry-desc">Leveraging the soft compliance of expanded cellulose, LaserMorph provides localized cushioning that conforms to user anatomy for ergonomic support.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/3.Enhanced Everyday Objects/Tactile Postcards/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/3.Enhanced Everyday Objects/Tactile Postcards/image 65.png" alt="Tactile Postcards">
+                                        <p class="app-entry-title">Tactile Postcards</p>
+                                        <p class="app-entry-desc">Flat-packed postcards encode topographic or scenic relief into mailable sheets. Upon hydration, the sheet transforms into a tactile 3D surface, combining compact distribution with embodied exploration.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/3.Enhanced Everyday Objects/Expressive Modular Graphic Prototyping/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/3.Enhanced Everyday Objects/Expressive_Modular Graphic Prototyping/fm.jpg" alt="Expressive Modular Graphic Prototyping">
+                                        <p class="app-entry-title">Expressive Modular Graphic Prototyping</p>
+                                        <p class="app-entry-desc">LaserMorph as a medium for visual communication and tactile expression. Graphics are unfolded, hydrated, assembled, and touched, introducing time, surprise, and participation into flat communication surfaces.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sustainable Sensors and Tangible Interaction Interfaces -->
+                <div class="divToggle">
+                    <div class="divHeader" onclick="detailItem(this)">
+                        <h2>Sustainable Sensors and Tangible Interaction Interfaces</h2>
+                        <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle" style="width: 4rem; margin-right: 3rem;">
+                    </div>
+                    <div class="divToggleContent">
+                        <p class="category-desc" style="margin-top: 25px;">This group examines how LaserMorph can utilize natural energy for transformation, support tactile engagement, and physically interactive artifacts. These cases suggest that the method is not only useful for fabrication, but also for shaping temporal and embodied forms of interaction.</p>
+                        <div class="app-grid">
+                            <div class="app-entry">
+                                <a href="../appExamples/4.Sustainable Sensors and Tangible Interaction Interfaces/Rain-triggered Natural Energy Sensor/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/4.Tangible interaction interfaces/Rain-Triggered Urban Interfaces/fm_image 71.png" alt="Rain-triggered Natural Energy Sensor">
+                                        <p class="app-entry-title">Rain-triggered Natural Energy Sensor</p>
+                                        <p class="app-entry-desc">Signage such as "Slippery Surface" remains flat under normal conditions and becomes more spatially prominent after rainwater activation—a zero-power strategy for context-aware public alerts.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/4.Sustainable Sensors and Tangible Interaction Interfaces/Translucent Lampshade/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/4.Tangible interaction interfaces/Lampshade/fm_image 83.png" alt="Translucent Lampshade">
+                                        <p class="app-entry-title">Translucent Lampshade</p>
+                                        <p class="app-entry-desc">This case leverages the light-diffusing properties of the expanded cellulose network. By modulating thickness via grayscale engraving, patterns emerge as nuanced light gradients upon expansion.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/4.Sustainable Sensors and Tangible Interaction Interfaces/Multimodal Haptic Instruments/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/4.Tangible interaction interfaces/Multimodal Haptic Instruments/fm_image 84.png" alt="Multimodal Haptic Instruments">
+                                        <p class="app-entry-title">Multimodal Haptic Instruments</p>
+                                        <p class="app-entry-desc">A "Pentatonic Squeeze" interface maps laser-encoded stiffness differences to musical tonalities, enabling tangible multimodal feedback through pressing and deformation.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="app-entry">
+                                <a href="../appExamples/4.Sustainable Sensors and Tangible Interaction Interfaces/Customizable Game Peripherals/index.html">
+                                    <div class="app-card">
+                                        <img loading="lazy" src="../../resources/img/4.Tangible interaction interfaces/Customizable Game Peripherals/fm_image 77.png" alt="Customizable Game Peripherals">
+                                        <p class="app-entry-title">Customizable Game Peripherals</p>
+                                        <p class="app-entry-desc">A bio-based controller concept uses compliant material behavior and modular laser patterning to support ergonomic customization and component swapping.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="margin-bottom: 6rem;"></div>
+        </div>
+    </div>
+    <script>
+        function getSectionKey(header) {
+            const title = header.querySelector('h2').textContent;
+            return 'appExamples_expanded_' + title;
+        }
+
+        function detailItem(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.moreLessIcon');
+            const key = getSectionKey(header);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                icon.src = '../../resources/img/icons/lessIcon.png';
+                localStorage.setItem(key, 'true');
+            } else {
+                content.style.display = 'none';
+                icon.src = '../../resources/img/icons/moreIcon.png';
+                localStorage.setItem(key, 'false');
+            }
+        }
+
+        // Restore expansion state on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.divHeader').forEach(header => {
+                const key = getSectionKey(header);
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.moreLessIcon');
+                if (localStorage.getItem(key) === 'true') {
+                    content.style.display = 'block';
+                    icon.src = '../../resources/img/icons/lessIcon.png';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

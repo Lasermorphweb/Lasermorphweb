@@ -1,0 +1,30 @@
+{
+  version: 2,
+  mediaFileName: 'character_fixed.mp4',
+  cutSegments: [
+    {
+      start: 7.111805555555556,
+      end: 10.727898,
+      name: 'characterfix_singleselection',
+      selected: true,
+    },
+    {
+      start: 18.49693287037037,
+      end: 24.033409,
+      name: 'characterfix_mutipleinputs',
+      selected: true,
+    },
+    {
+      start: 31.566435185185185,
+      end: 33.036136,
+      name: 'change_preview_state',
+      selected: true,
+    },
+    {
+      start: 36.83790509259259,
+      end: 37.85205,
+      name: 'characterfix_generatepath',
+      selected: true,
+    },
+  ],
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double-sided</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        html, body { background-color: #000; font-size: calc(1728vw / 1728); margin: 0; padding: 0; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #fff; }
+        h1 { font-size: 4.5rem; margin: 0 0 2rem 0; }
+        h2 { font-size: 2.5rem; margin: 2rem 0 1rem 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(255,255,255,0.72); font-size: 1rem; line-height: 1.65; }
+        .main { margin: 2rem 20rem 4rem 24rem; padding-top: 80px; }
+        .img-container { display: flex; flex-direction: column; align-items: center; margin-top: 25px; }
+        .img-container img { width: 440px; max-height: 380px; object-fit: contain; border-radius: 0; }
+        .img-caption { font-size: 0.7em; color: rgba(255,255,255,0.7); margin-top: 5px; text-align: center; }
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0, 0, 0, 0.92); border-bottom: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .topbar-inner { margin: 0 6rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
+        .topbar-brand { font-family: 'DM Serif Display', serif; color: #fff; font-size: 1.5rem; text-decoration: none; }
+        .topbar-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .topbar-nav a { text-decoration: none; color: rgba(255,255,255,0.75); font-family: 'Noto Sans', sans-serif; font-size: 0.95rem; border-bottom: 2px solid transparent; }
+        .topbar-nav a.active, .topbar-nav a:hover { color: #fff; border-bottom-color: #fff; }
+    </style>
+<script src="../../../../js/lazy-load.js"></script>
+    </head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="../../../../index.html">LaserMorph</a>
+            <nav class="topbar-nav">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../subpage/MFGuide.html">Mechanism</a>
+                <a class="active" href="../../../subpage/library.html">Design Space</a>
+                <a href="../../../subpage/designTool.html">Design Tool</a><a href="../../../subpage/appExamples.html">Applications</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main">
+        <h1>Double-sided</h1>
+        <p>Double-sided carving involves cutting both the front and back faces of the material. This technique requires splitting the model into two parts—top and bottom—and processing each side separately. The user cuts one side, flips the material, and then cuts the other side, which is suitable for creating more complex 3D shapes that require detail on both sides.</p>
+        
+        <div class="img-container">
+            <img loading="lazy" src="../../../../resources/img/doublesided.png" alt="Double-sided">
+            <p class="img-caption">Double-sided Carving</p>
+        </div>
+
+        <h2>Process</h2>
+        <ol>
+            <li><strong>Import the Model:</strong> Import the model into the LaserMorph design tool.</li>
+            <li><strong>Generate Front Cutting Path:</strong> The tool will generate the cutting path for the front side. Ensure the bottom-left corner of the front shape is positioned 10mm away from the XY axis.</li>
+            <li><strong>Generate Back Cutting Path:</strong> After generating the front cutting path, rotate the back cutting path by -90 degrees and horizontally mirror it.</li>
+            <li><strong>Export Cutting Files:</strong> Export both the front and back cutting paths in DXF or other supported formats.</li>
+            <li><strong>Front-side Cutting:</strong> Load the material into the laser cutter and cut the front face using the generated cutting file.</li>
+            <li><strong>Flip the Material:</strong> After cutting the front face, flip the material like a book and rotate it 90 degrees clockwise.</li>
+            <li><strong>Back-side Cutting:</strong> Cut the back face using the generated back cutting file.</li>
+            <li><strong>Completion:</strong> After cutting both sides, the model will be fully carved and ready for activation.</li>
+        </ol>
+    </div>
+</body>
+</html>

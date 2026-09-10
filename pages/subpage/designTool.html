@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Tool - LaserMorph</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="../../js/lazy-load.js"></script>
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); }
+        h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #030303; margin: 0; }
+        h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #030303; margin: 1.5rem 0 0.5rem 0; }
+        h4 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #030303; margin: 1.2rem 0 0.3rem 0; }
+        p { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.72); font-size: 1rem; line-height: 1.65; }
+        .intro { margin: 2rem 18rem 0 18rem; }
+        .intro h1 { font-family: 'DM Serif Display', serif; font-size: 4.5rem; color: #030303; margin: 0 0 1.5rem 0; }
+        .intro p { max-width: 58rem; margin-bottom: 1rem; }
+        .intro-img { width: 100%; border-radius: 12px; margin-bottom: 1rem; }
+        .divToggle { margin: 2rem 18rem 0 18rem; }
+        .divHeader { display: flex; align-items: center; border-bottom: 3px solid #030303; justify-content: space-between; padding-bottom: 20px; cursor: pointer; }
+        .divHeader h2 { margin: 0; }
+        .moreLessIcon { width: 4rem; margin-right: 3rem; }
+        .divToggleContent { display: none; padding: 1rem 0; }
+        .img-row { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px; }
+        .img-row > div { flex: 1; min-width: 280px; }
+        .img-row img, .img-row video { width: 100%; border-radius: 12px; }
+        .img-caption { font-size: 0.85rem; color: rgba(3,3,3,0.6); margin-top: 5px; text-align: center; }
+        .content-img { width: 100%; border-radius: 12px; margin-top: 10px; }
+        .content-video { width: 100%; border-radius: 12px; margin-top: 10px; }
+        .video-container { display: flex; flex-direction: column; align-items: center; margin-top: 15px; }
+        .video-container video { width: 100%; border-radius: 12px; }
+        .topbar { position: sticky; top: 0; z-index: 100; background: rgba(253, 253, 253, 0.92); border-bottom: 1px solid rgba(3, 3, 3, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .topbar-inner { margin: 0 6rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
+        .topbar-brand { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; text-decoration: none; }
+        .topbar-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .topbar-nav a { text-decoration: none; color: rgba(3,3,3,0.75); font-family: 'Noto Sans', sans-serif; font-size: 0.95rem; border-bottom: 2px solid transparent; }
+        .topbar-nav a.active, .topbar-nav a:hover { color: #030303; border-bottom-color: #030303; }
+        @media (max-width: 992px) { .intro, .divToggle { margin: 2rem 10rem 0 10rem; } }
+        @media (max-width: 768px) { .intro, .divToggle { margin: 2rem 4rem 0 4rem; } .topbar-inner { margin: 0 2.5rem; } }
+
+        /* Calibration is a child tool within Design Tool. */
+        .calibration-entry { margin: 2rem 0; padding: 1.5rem 0; border-top: 3px solid #030303; border-bottom: 1px solid rgba(3,3,3,.15); display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 1.5rem; }
+        .calibration-entry h2 { font-size: 2.5rem; margin: .4rem 0 .6rem; }
+        .calibration-entry p { margin: 0; max-width: 48rem; }
+        .calibration-label { font-family: 'Noto Sans', sans-serif; font-size: .85rem; color: #565656; }
+        .calibration-action { display: inline-block; padding: .8rem 1.1rem; border: 1px solid #030303; border-radius: 4px; background: #030303; color: #fff; font-family: 'Noto Sans', sans-serif; font-size: .95rem; text-decoration: none; white-space: nowrap; }
+        .calibration-action:hover { background: #333; color: #fff; }
+        .calibration-action:focus-visible { outline: 2px solid #030303; outline-offset: 4px; }
+        .calibration-link { color: #030303; text-underline-offset: 4px; }
+        @media (max-width: 768px) { .calibration-entry { grid-template-columns: 1fr; } .calibration-action { justify-self: start; } }
+    </style>
+</head>
+<body>
+    <header class="topbar"><div class="topbar-inner"><a class="topbar-brand" href="../../index.html">LaserMorph</a><nav class="topbar-nav"><a href="../../index.html">Home</a><a href="./MFGuide.html">Mechanism</a><a href="./library.html">Design Space</a><a class="active" href="./designTool.html">Design Tool</a><a href="./appExamples.html">Applications</a></nav></div></header>
+
+    <div class="intro">
+        <h1>Design Tool</h1>
+        <p>Our design tool, built on Grasshopper and utilizing the HumanUI component, provides an intuitive, easy-to-use interface for users. The tool is divided into four major modules: Calibration, Free Design, Creative Tools, and Case Restoration. These modules offer different features that cater to various design needs, from setting up calibration parameters to creating custom models using parametric design.</p>
+        <section class="calibration-entry" aria-labelledby="calibration-entry-title">
+            <div><span class="calibration-label">Browser tool · 20 W calibration</span><h2 id="calibration-entry-title">Laser Calibration</h2><p>Enter laser power and scan speed to estimate groove depth after hydration. Explore pooled measurements, the depth–speed response and the calibration map under the original test conditions.</p></div>
+            <a class="calibration-action" href="./laserCalibration.html">Open calibration tool &rarr;</a>
+        </section>
+        <img class="intro-img" src="../../resources/img/designtool ui.png" alt="Design Tool UI">
+    </div>
+
+    <div class="divToggle">
+        <div class="divHeader" onclick="detailItem(this)">
+            <h2>1. Calibration</h2>
+            <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
+        </div>
+        <div class="divToggleContent">
+            <p>The Grasshopper Calibration module supports test-model preparation for your laser cutter. The <a class="calibration-link" href="./laserCalibration.html">web calibration tool</a> uses measurements from the original 20 W system to estimate groove depth after hydration from power percentage and scan speed. Changes to the machine, material or processing conditions require recalibration; the web tool does not scale results to other machine wattages.</p>
+            
+            <h4>Rate Power & Cutting Speed</h4>
+            <p>Input the machine's power percentage and speed to calculate the thickness of each cut.</p>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
+                    <source data-src="../../resources/gif_designtool/web_video/calibration_Step_1_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Set power and speed parameters</p>
+            </div>
+            
+            <h4>Export Calibration Model</h4>
+            <p>Generate and export the calibration model as DXF or G-code files for test cuts.</p>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
+                    <source data-src="../../resources/gif_designtool/web_video/calibration_Step_2_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Calculate depth of cut</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divToggle">
+        <div class="divHeader" onclick="detailItem(this)">
+            <h2>2. Free Design</h2>
+            <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
+        </div>
+        <div class="divToggleContent">
+            <p>The Free Design module provides users the flexibility to import their own models and generate cutting paths. The module supports various cutting modes, including single-sided and double-sided cutting.</p>
+
+            <h3>2.1 Single-Sided Cutting</h3>
+            <p>Preview the model in different states to visualize the transformation between dry and wet conditions.</p>
+
+            <h4>Preview State</h4>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
+                    <source data-src="../../resources/gif_designtool/web_video/freedesign_Step_3_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Switch between dry and wet states</p>
+            </div>
+
+            <h4>Set Parameters</h4>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
+                    <source data-src="../../resources/gif_designtool/web_video/freedesign_Step_4_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Configure power and speed settings</p>
+            </div>
+
+            <h3>2.2 Double-Sided Cutting</h3>
+            <p>Design models that require cutting on both sides of the material, enabling more complex 3D transformations.</p>
+
+            <h4>Preview States</h4>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
+                    <source data-src="../../resources/gif_designtool/web_video/freedesign_Step_5_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Preview dry and wet states</p>
+            </div>
+
+            <h4>Change Generate Mode of Double Sides</h4>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
+                    <source data-src="../../resources/gif_designtool/web_video/freedesign_Step_6_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Switch between different generation modes for double-sided designs</p>
+            </div>
+
+            <h3>2.3 Vertical Design</h3>
+            <p>Create vertical-oriented models with optimized cutting patterns for upright structures and vertical transformations.</p>
+
+            <h4>Vertical Configuration</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/freedesign_vertical_Step_1_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">change preview state</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/freedesign_vertical_Step_2_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">generate path</p>
+                </div>
+            </div>
+
+            <h3>2.4 Six-Side Design</h3>
+            <p>Design complex models with six-sided cutting patterns, enabling full 3D transformations from a single flat sheet.</p>
+
+            <h4>Six-Side Configuration</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/freedesign_sixside_Step_1_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">generate path</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/freedesign_sixside_Step_2_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">change generation mode</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/freedesign_sixside_Step_3_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">switch preview mode</p>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divToggle">
+        <div class="divHeader" onclick="detailItem(this)">
+            <h2>3. Creative Tools</h2>
+            <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
+        </div>
+        <div class="divToggleContent">
+            <p>The Creative Tools module offers four parametric design cases that allow users to create custom models by adjusting various parameters.</p>
+
+            <h3>3.1 Letter Arrangement</h3>
+            <p>Users can input the desired letters, numbers, or simple shapes and adjust their size.</p>
+
+            <h4>Character Selection</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/characterfix_singleselection_Step_1_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Single character selection</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/characterfix_mutipleinputs_Step_2_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Multiple character input</p>
+                </div>
+            </div>
+
+            <h4>Generate Path</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/characterfix_generatepath_Step_4_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Generate cutting path</p>
+                </div>
+            </div>
+
+            <h3>3.2 Seaweed</h3>
+            <p>Adjust the number of seaweed strands in the X and Y directions, height, overall size, and other parameters.</p>
+            
+            <h4>Parameter Configuration</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_5_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust size</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_6_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust number of item (x axis)</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_7_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust number of item (y axis)</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_8_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change random seed</p>
+                </div>
+            </div>
+            
+            <h4>Parameter Adjustment</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_9_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust base gap level</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_10_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust total height</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_11_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust bottom height</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_aquaticplants_Step_12_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview state</p>
+                </div>
+            </div>
+
+            <h3>3.3 City</h3>
+            <p>Import a curve from a file, then define the maximum and minimum heights of city elements.</p>
+            
+            <h4>City Model Creation</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_city_Step_14_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust min height</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_city_Step_15_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust max height</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_city_Step_16_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust random seed</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_city_Step_17_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview state</p>
+                </div>
+            </div>
+
+            <h3>3.4 Expansion Module</h3>
+            <p>Customize the zigzag pattern for horizontal expansion and adjust parameters for vertical expansion.</p>
+            
+            <h4>Expression Settings</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_1_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust object size</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_2_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust total height</p>
+                </div>
+            </div>
+            
+            <h4>Pattern Configuration</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_3_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Select expression position</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_4_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Generate path</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_5_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Switch expression mode</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_6_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust object size</p>
+                </div>
+            </div>
+            
+            <h4>Generate & Export</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_7_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust number of item (x axis)</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_8_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust number of item (y axis)</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_9_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust convex height</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_10_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Adjust bottom height</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <video data-lazy="true" preload="none" class="content-video" loop muted playsinline style="max-width: 48%;">
+                    <source data-src="../../resources/gif_designtool/web_video/creativewidget_expansion_Step_11_web.mp4" type="video/mp4">
+                </video>
+                <p class="img-caption">Change preview state</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divToggle">
+        <div class="divHeader" onclick="detailItem(this)">
+            <h2>4. Case Restoration</h2>
+            <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
+        </div>
+        <div class="divToggleContent">
+            <p>The Case Restoration module includes a selection of classic pre-designed models that users can reference or use directly: Car, Rabbit, Wrist Rest, and UIST Cube.</p>
+            
+            <h4>Vehicle Model</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_vehicle_Step_1_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview state</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_vehicle_Step_2_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Generate path</p>
+                </div>
+            </div>
+            <p><a href="../../Supplementary material/Model source file/Car.3dm" download style="color: rgba(3,3,3,0.75);">Download Car.3dm</a></p>
+            
+            <h4>Rabbit Model</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_rabbit_Step_3_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_rabbit_Step_4_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Switch preview state</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_rabbit_Step_5_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Generate path</p>
+                </div>
+            </div>
+            <p><a href="../../Supplementary material/Model source file/bunny.3dm" download style="color: rgba(3,3,3,0.75);">Download bunny.3dm</a></p>
+            
+            <h4>Wrist Rest</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_rabbit_Step_6_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Generate path</p>
+                </div>
+            </div>
+            
+            <h4>UIST Cube Model</h4>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_uist_Step_1_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode to Whole object</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_uist_Step_2_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode to Top</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_uist_Step_3_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode to Front</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_uist_Step_4_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode to Back</p>
+                </div>
+            </div>
+            <div class="img-row">
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_uist_Step_5_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode to Left</p>
+                </div>
+                <div>
+                    <video data-lazy="true" preload="none" loop muted playsinline>
+                        <source data-src="../../resources/gif_designtool/web_video/caserestoration_uist_Step_6_web.mp4" type="video/mp4">
+                    </video>
+                    <p class="img-caption">Change preview mode to Right</p>
+                </div>
+            </div>
+            <p><a href="../../Supplementary material/Model source file/UIST2026.3dm" download style="color: rgba(3,3,3,0.75);">Download UIST2026.3dm</a></p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 6rem;"></div>
+
+    <script>
+        function detailItem(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.moreLessIcon');
+            if (content.style.display === 'none') { content.style.display = 'block'; icon.src = '../../resources/img/icons/lessIcon.png'; }
+            else { content.style.display = 'none'; icon.src = '../../resources/img/icons/moreIcon.png'; }
+        }
+    </script>
+</body>
+</html>

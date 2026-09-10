@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3: Volumetric Shapes - LaserMorph Design Space</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); margin: 0; padding: 0; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #030303; margin: 0; }
+        h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.8rem; margin: 2rem 0 1rem 0; }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem 0; }
+        p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.75); font-size: 1rem; line-height: 1.7; }
+        .main { margin: 2rem 18rem 4rem 22rem; padding-top: 80px; }
+        .img-container { display: flex; flex-direction: column; align-items: center; margin-top: 25px; }
+        .img-container img { width: 440px; max-height: 380px; object-fit: contain; border-radius: 0; }
+        .img-caption { font-size: 0.7em; color: rgba(0,0,0,0.5); margin-top: 5px; text-align: center; }
+        .breadcrumb { font-family: 'Noto Sans', sans-serif; font-size: 0.85rem; color: rgba(3,3,3,0.6); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: rgba(3,3,3,0.7); text-decoration: none; }
+        .breadcrumb a:hover { color: #030303; text-decoration: underline; }
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(253, 253, 253, 0.92); border-bottom: 1px solid rgba(3, 3, 3, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .topbar-inner { margin: 0 6rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
+        .topbar-brand { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; text-decoration: none; }
+        .topbar-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .topbar-nav a { text-decoration: none; color: rgba(3,3,3,0.75); font-family: 'Noto Sans', sans-serif; font-size: 0.95rem; border-bottom: 2px solid transparent; }
+        .topbar-nav a.active, .topbar-nav a:hover { color: #030303; border-bottom-color: #030303; }
+        ol, ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        @media (max-width: 1200px) { .main { margin: 2rem 10rem 4rem 12rem; } }
+        @media (max-width: 768px) { .main { margin: 2rem 3rem 4rem 3rem; } .topbar-inner { margin: 0 2rem; } }
+    </style>
+<script src="../../../js/lazy-load.js"></script>
+    </head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="../../../index.html">LaserMorph</a>
+            <nav class="topbar-nav">
+                <a href="../../../index.html">Home</a>
+                <a href="../MFGuide.html">Mechanism</a>
+                <a class="active" href="../library.html">Design Space</a>
+                <a href="../designTool.html">Design Tool</a>
+                <a href="../appExamples.html">Applications</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main">
+        <p class="breadcrumb"><a href="../library.html">Design Space</a> / <a href="../library.html">Shapes</a> / Level 3: Volumetric Shapes</p>
+        <h1>Level 3: Volumetric Shapes</h1>
+        
+        <p>Level 3: Volumetric Shapes introduces the creation of complex models, focusing on 3D structures that go beyond simple shapes and curvatures. At this stage, users are required to build their own models using their design software and then import those models into the LaserMorph design tool for further processing. This level allows for the creation of intricate and highly customized volumetric shapes, offering flexibility in design.</p>
+        
+        <p>In Level 3, users can create a wide range of 3D forms, including complex and organic shapes, which can then be processed using LaserMorph's unique method of material manipulation. Some examples of models that can be created include animals like rabbits, objects like cars, and many other intricate designs. These examples serve as inspiration for users to experiment and apply the tool in their designs. We also provide access to several pre-made example models that users can modify and customize based on their specific needs.</p>
+        
+        <div class="img-container">
+            <img loading="lazy" src="../../../resources/img/level3.png" alt="Level 3: Volumetric Shapes">
+            <p class="img-caption">Level 3: Volumetric Shapes</p>
+        </div>
+
+        <h2>Process</h2>
+        <ol>
+            <li><strong>Create Your Own Model:</strong> Start by building a 3D model in your preferred modeling software. This can be any complex shape that you wish to work with, such as organic forms, machinery, or abstract structures. The model should be designed with the desired complexity and details in mind.</li>
+            <li><strong>Import the Model into the Design Tool:</strong> After completing your model, import the file into the LaserMorph design tool. Supported file formats typically include DXF, STL, and OBJ. The design tool will allow you to manipulate and modify the model for laser cutting.</li>
+            <li><strong>Adjust Model Parameters:</strong> Once the model is imported, adjust the parameters for the laser processing, such as cutting depth, speed, and the number of passes. These adjustments will help prepare the model for the laser cutting process and ensure optimal results.</li>
+            <li><strong>Test Using Example Models:</strong> If you're new to the process or looking for inspiration, you can refer to example models provided in the tool, such as the rabbit or car models. These models can be used as templates for creating your own designs or as practice for understanding the tool's capabilities.</li>
+            <li><strong>Process the Model with LaserMorph:</strong> After making adjustments, use the LaserMorph tool to process your model. The tool will generate the necessary cutting paths and prepare the model for laser engraving and activation. This allows you to see how the material will behave once cut and activated.</li>
+            <li><strong>Observe the Final Result:</strong> Once the model is processed and activated, observe how the material responds and transforms into the final 3D shape. This step demonstrates the effectiveness of composite curvatures and other techniques used to create intricate and dynamic shapes.</li>
+        </ol>
+    </div>
+</body>
+</html>
