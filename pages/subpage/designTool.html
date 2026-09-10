@@ -59,7 +59,7 @@
 
     <div class="intro">
         <h1>Design Tool</h1>
-        <p>Our design tool, built on Grasshopper and utilizing the HumanUI component, provides an intuitive, easy-to-use interface for users. The tool is divided into four major modules: Calibration, Free Design, Creative Tools, and Case Restoration. These modules offer different features that cater to various design needs, from setting up calibration parameters to creating custom models using parametric design.</p>
+        <p>The Rhino/Grasshopper design tool uses a Human UI interface and provides four modules: System Calibration, Advanced Design Workbench, Creative Plugin, and Case Replication. Together they support calibration, geometry preparation, volumetric preview, toolpath generation, and export under the selected machine and material conditions.</p>
         <section class="calibration-entry" aria-labelledby="calibration-entry-title">
             <div><span class="calibration-label">Browser tool · 20 W calibration</span><h2 id="calibration-entry-title">Laser Calibration</h2><p>Enter laser power and scan speed to estimate groove depth after hydration. Explore pooled measurements, the depth–speed response and the calibration map under the original test conditions.</p></div>
             <a class="calibration-action" href="./laserCalibration.html">Open calibration tool &rarr;</a>
@@ -69,14 +69,14 @@
 
     <div class="divToggle">
         <div class="divHeader" onclick="detailItem(this)">
-            <h2>1. Calibration</h2>
+            <h2>1. System Calibration</h2>
             <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
         </div>
         <div class="divToggleContent">
             <p>The Grasshopper Calibration module supports test-model preparation for your laser cutter. The <a class="calibration-link" href="./laserCalibration.html">web calibration tool</a> uses measurements from the original 20 W system to estimate groove depth after hydration from power percentage and scan speed. Changes to the machine, material or processing conditions require recalibration; the web tool does not scale results to other machine wattages.</p>
             
             <h4>Rate Power & Cutting Speed</h4>
-            <p>Input the machine's power percentage and speed to calculate the thickness of each cut.</p>
+            <p>Input power percentage and scanning speed to estimate groove depth after hydration under the calibrated conditions. This is distinct from thickness removed from the dry sheet.</p>
             <div class="video-container">
                 <video data-lazy="true" preload="none" class="content-video" loop muted playsinline>
                     <source data-src="../../resources/gif_designtool/web_video/calibration_Step_1_web.mp4" type="video/mp4">
@@ -97,11 +97,11 @@
 
     <div class="divToggle">
         <div class="divHeader" onclick="detailItem(this)">
-            <h2>2. Free Design</h2>
+            <h2>2. Advanced Design Workbench</h2>
             <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
         </div>
         <div class="divToggleContent">
-            <p>The Free Design module provides users the flexibility to import their own models and generate cutting paths. The module supports various cutting modes, including single-sided and double-sided cutting.</p>
+            <p>The Advanced Design Workbench module provides users the flexibility to import their own models and generate cutting paths. The module supports various cutting modes, including single-sided and double-sided cutting.</p>
 
             <h3>2.1 Single-Sided Cutting</h3>
             <p>Preview the model in different states to visualize the transformation between dry and wet conditions.</p>
@@ -161,7 +161,7 @@
             </div>
 
             <h3>2.4 Six-Side Design</h3>
-            <p>Design complex models with six-sided cutting patterns, enabling full 3D transformations from a single flat sheet.</p>
+            <p>Design complex models with six-sided cutting patterns, supporting approximate 3D forms through multiple processing orientations.</p>
 
             <h4>Six-Side Configuration</h4>
             <div class="img-row">
@@ -192,11 +192,11 @@
 
     <div class="divToggle">
         <div class="divHeader" onclick="detailItem(this)">
-            <h2>3. Creative Tools</h2>
+            <h2>3. Creative Plugin</h2>
             <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
         </div>
         <div class="divToggleContent">
-            <p>The Creative Tools module offers four parametric design cases that allow users to create custom models by adjusting various parameters.</p>
+            <p>The Creative Plugin module offers four parametric design cases that allow users to create custom models by adjusting various parameters.</p>
 
             <h3>3.1 Letter Arrangement</h3>
             <p>Users can input the desired letters, numbers, or simple shapes and adjust their size.</p>
@@ -412,11 +412,11 @@
 
     <div class="divToggle">
         <div class="divHeader" onclick="detailItem(this)">
-            <h2>4. Case Restoration</h2>
+            <h2>4. Case Replication</h2>
             <img loading="lazy" class="moreLessIcon" src="../../resources/img/icons/moreIcon.png" alt="Toggle">
         </div>
         <div class="divToggleContent">
-            <p>The Case Restoration module includes a selection of classic pre-designed models that users can reference or use directly: Car, Rabbit, Wrist Rest, and UIST Cube.</p>
+            <p>The Case Replication module includes a selection of classic pre-designed models that users can reference or use directly: Car, Rabbit, Wrist Rest, and UIST Cube.</p>
             
             <h4>Vehicle Model</h4>
             <div class="img-row">

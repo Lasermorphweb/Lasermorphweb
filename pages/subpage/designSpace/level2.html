@@ -51,7 +51,7 @@
         <p class="breadcrumb"><a href="../library.html">Design Space</a> / <a href="../library.html">Shapes</a> / Level 2: Curved Surfaces / 2.5D</p>
         <h1>Level 2: Curved Surfaces / 2.5D</h1>
         
-        <p>Level 2: Curved Surfaces / 2.5D covers both single bends and composite curved surfaces. Single-curvature shapes can be created by rotating a profile around an axis to form a rotational body. Composite surfaces combine positive and negative curvature within the same surface, including negative Gaussian curvature. These approaches extend the angled surfaces of Level 1: Slopes into continuous curved forms.</p>
+        <p>Level 2: Curved Surfaces / 2.5D includes raised features and curved forms such as concave and convex surfaces, cylinders, cones, and turtle forms. Local thickness recovery produces the intended surface profile. The examples below use rotational and composite curves to define the target height profile.</p>
         
         <div class="img-container">
             <img loading="lazy" src="../../../resources/img/design-space-cards/Level2CurvedSurfaces.png" alt="Level 2: Curved Surfaces / 2.5D">
@@ -70,10 +70,10 @@
         <h2>Part 2: Composite Curved Surfaces</h2>
         <ol>
             <li><strong>Create the Base Model (Initial Shape):</strong> Start by creating a simple base shape, such as a flat surface or cube, in your design software. This will serve as the foundation for applying composite curvature.</li>
-            <li><strong>Define the Composite Curvature:</strong> On the surface of the base shape, draw a composite curvature curve. Unlike a single-curvature surface, composite curvature involves defining both positive and negative curvatures. These curvatures will result in complex patterns and internal stresses that will eventually influence the material's expansion.</li>
-            <li><strong>Apply Curvature Control:</strong> Using your design tool, apply the curvature control across the surface. Adjust the positive and negative energy patterns in specific areas to create a surface that exhibits negative Gaussian curvature, such as Anisotropic surfaces. These areas will respond differently to external and internal forces, showcasing material behavior beyond simple bending.</li>
-            <li><strong>Generate the Final Complex Curve:</strong> Once the curvature is defined, rotate the surface or apply the relevant transformation to create the final complex curve. This step integrates the composite curvature and will result in a shape that not only bends but also responds to forces in a more controlled and dynamic manner.</li>
-            <li><strong>Test the Surface Behavior:</strong> After generating the surface, test the material's behavior under different conditions (e.g., stretching, bending, or applying stress). Observe how the surface adapts and reacts to internal forces, confirming the effectiveness of composite curvature in controlling material response.</li>
+            <li><strong>Define the Composite Curvature:</strong> On the surface of the base shape, draw a composite curvature curve. Unlike a single-curvature surface, composite curvature involves defining both positive and negative curvatures. The resulting profile determines the required local engraving depths and remaining thickness.</li>
+            <li><strong>Apply Curvature Control:</strong> Using your design tool, apply the curvature control across the surface. Define the intended local heights and use the calibration profile to assign engraving settings. Check the expanded and dried geometry against the model.</li>
+            <li><strong>Generate the Final Complex Curve:</strong> Once the curvature is defined, rotate the surface or apply the relevant transformation to create the final complex curve. This produces the target geometry for toolpath generation and fabrication.</li>
+            <li><strong>Inspect the Fabricated Surface:</strong> Compare the hydrated and dried specimen with the target height profile. Account for local variation, shrinkage, and the material’s limited fine-detail fidelity when revising the design.</li>
         </ol>
     </div>
 </body>
