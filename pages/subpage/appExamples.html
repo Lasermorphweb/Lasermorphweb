@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <script src="../../js/lazy-load.js"></script>
     <style>
-        html, body { background-color: #fdfdfd; font-size: calc(1728vw / 1728); }
+        html, body { background-color: #fdfdfd; font-size: clamp(14px, 1vw, 20px); }
         h1 { font-family: 'DM Serif Display', serif; color: #030303; font-size: 4.5rem; margin: 0; }
         h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #030303; margin: 0; }
         h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #030303; margin: 0; }
@@ -29,11 +29,12 @@
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .app-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-        .app-card img { width: 100%; height: 220px; object-fit: contain; border-radius: 15px; background: #000; }
+        .app-card img { display: block; width: 100%; height: auto; flex-shrink: 0; border-radius: 0; background: #000; }
         .app-entry-title { color: #fff; font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 12px 0 0 0; text-align: center; font-weight: bold; }
         .app-entry-desc { color: rgba(255,255,255,0.8); font-family: 'Noto Sans', sans-serif; font-size: 0.9rem; line-height: 1.5; margin-top: 10px; text-align: left; }
         .app-grid { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; }
-        .app-entry { flex: 1 1 280px; min-width: 280px; max-width: 400px; margin-bottom: 0; }
+        .app-entry { flex: 1 1 280px; min-width: 280px; max-width: none; margin-bottom: 0; }
+        .app-entry > a { display: block; height: 100%; }
         .app-subsubtitle { font-family: 'DM Serif Display', serif; color: #030303; font-size: 1.5rem; margin: 0 0 0.8rem 0; }
         .app-category { margin-bottom: 2rem; margin-top: 25px; }
         .category-desc { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.75); font-size: 1.05rem; line-height: 1.7; margin: 0 0 1.5rem 0; }
@@ -53,7 +54,15 @@
         .topbar-nav a.active, .topbar-nav a:hover { color: #030303; border-bottom-color: #030303; }
         @media (max-width: 1200px) { .app-entry { min-width: 250px; } }
         @media (max-width: 992px) { .main { margin: 2rem 10rem 0 10rem; } }
-        @media (max-width: 768px) { .main { margin: 2rem 4rem 0 4rem; } .topbar-inner { margin: 0 2.5rem; } .app-entry { min-width: 220px; } }
+        @media (max-width: 768px) {
+            .main { margin: 2rem 1rem 0; }
+            .main > p:first-child { font-size: 2.5rem !important; margin-bottom: 3rem !important; }
+            h2 { font-size: 1.8rem; }
+            .topbar-inner { margin: 0 1rem; flex-wrap: wrap; }
+            .divHeader { gap: 1rem; }
+            .divHeader .moreLessIcon { width: 2rem !important; margin-right: 0 !important; }
+            .app-entry { min-width: 220px; }
+        }
         @media (max-width: 480px) { .app-entry { min-width: 100%; flex: 1 1 100%; } }
     </style>
 </head>
@@ -91,7 +100,7 @@
                                 <div class="app-entry">
                                     <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Audio Player/index.html">
                                         <div class="app-card">
-                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Audio Player_fm.png" alt="Audio Player">
+                                            <img loading="lazy" src="../../resources/img/product-design-prototypes/audio-player.png" alt="Audio Player">
                                             <p class="app-entry-title">Audio Player</p>
                                             <p class="app-entry-desc">Compact audio player enclosure for hand-sized electronic product prototyping, testing body volume and surface transitions.</p>
                                         </div>
@@ -100,7 +109,7 @@
                                 <div class="app-entry">
                                     <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Game Console/index.html">
                                         <div class="app-card">
-                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Game console_fm.png" alt="Game Console">
+                                            <img loading="lazy" src="../../resources/img/product-design-prototypes/game-console.png" alt="Game Console">
                                             <p class="app-entry-title">Game Console</p>
                                             <p class="app-entry-desc">Handheld entertainment hardware prototype emphasizing massing, interaction zones, and balance between tactile contact and volumetric presence.</p>
                                         </div>
@@ -109,7 +118,7 @@
                                 <div class="app-entry">
                                     <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Knob Switch/index.html">
                                         <div class="app-card">
-                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Knob switch_fm.png" alt="Knob Switch">
+                                            <img loading="lazy" src="../../resources/img/product-design-prototypes/knob-switch.png" alt="Knob Switch">
                                             <p class="app-entry-title">Knob Switch</p>
                                             <p class="app-entry-desc">Rotary interaction components as rapidly fabricated tactile controls, evaluating grip and rotational affordance.</p>
                                         </div>
@@ -118,7 +127,7 @@
                                 <div class="app-entry">
                                     <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Microphone/index.html">
                                         <div class="app-card">
-                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Microphone_fm.png" alt="Microphone">
+                                            <img loading="lazy" src="../../resources/img/product-design-prototypes/microphone.png" alt="Microphone">
                                             <p class="app-entry-title">Microphone</p>
                                             <p class="app-entry-desc">Microphone-like handheld object with distinct head-and-handle geometry for evaluating grasp and silhouette recognition.</p>
                                         </div>
@@ -127,7 +136,7 @@
                                 <div class="app-entry">
                                     <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Radio/index.html">
                                         <div class="app-card">
-                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Radio_fm.png" alt="Radio">
+                                            <img loading="lazy" src="../../resources/img/product-design-prototypes/radio.png" alt="Radio">
                                             <p class="app-entry-title">Radio</p>
                                             <p class="app-entry-desc">Compact radio form factors studying front-facing interface composition and enclosure proportioning.</p>
                                         </div>
@@ -136,7 +145,7 @@
                                 <div class="app-entry">
                                     <a href="../appExamples/1.Rapid Prototyping/Product Design Prototypes/Speaker/index.html">
                                         <div class="app-card">
-                                            <img loading="lazy" src="../../resources/img/1.Rapid Prototyping/Product Design Prototypes/Speaker_fm.png" alt="Speaker">
+                                            <img loading="lazy" src="../../resources/img/product-design-prototypes/speaker.png" alt="Speaker">
                                             <p class="app-entry-title">Speaker</p>
                                             <p class="app-entry-desc">Volumetric audio product prototype. A soft expanded body communicates acoustic enclosure, frontality, and product presence through silhouette, stance, and proportion.</p>
                                         </div>
