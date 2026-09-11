@@ -16,7 +16,10 @@
         p, li { font-family: 'Noto Sans', sans-serif; color: rgba(3,3,3,0.75); font-size: 1rem; line-height: 1.7; }
         .main { margin: 2rem 18rem 4rem 22rem; padding-top: 80px; }
         .img-container { display: flex; flex-direction: column; align-items: center; margin-top: 25px; }
-        .img-container img { width: 440px; max-height: 380px; object-fit: contain; border-radius: 0; }
+        .img-container img { width: 440px; max-width: 100%; max-height: 380px; object-fit: contain; border-radius: 0; }
+        .six-sided-gallery { display: flex; flex-wrap: wrap; gap: 24px; margin: 25px 0; }
+        .six-sided-gallery figure { flex: 1 1 280px; min-width: 0; margin: 0; }
+        .six-sided-gallery img { display: block; width: 100%; height: auto; }
         .img-caption { font-size: 0.7em; color: rgba(0,0,0,0.5); margin-top: 5px; text-align: center; }
         .breadcrumb { font-family: 'Noto Sans', sans-serif; font-size: 0.85rem; color: rgba(3,3,3,0.6); margin-bottom: 1.5rem; }
         .breadcrumb a { color: rgba(3,3,3,0.7); text-decoration: none; }
@@ -56,6 +59,15 @@
         <div class="img-container">
             <img loading="lazy" src="../../../resources/img/sixsided.png" alt="Six-sided">
             <p class="img-caption">Six-sided Carving</p>
+        </div>
+
+        <h2>Examples</h2>
+        <div class="six-sided-gallery">
+            <figure><img loading="lazy" src="../../../resources/img/six-sided/sixsided1.png" alt="Six-sided sample with rectangular recesses on multiple faces"></figure>
+            <figure><img loading="lazy" src="../../../resources/img/six-sided/sixsided2.png" alt="Thin open frame with engraved side openings"></figure>
+            <figure><img loading="lazy" src="../../../resources/img/six-sided/sixsided3.png" alt="Open box-shaped sample with rectangular side openings"></figure>
+            <figure><img loading="lazy" src="../../../resources/img/six-sided/sixsided4.png" alt="Six-sided cube with circular and arched features"></figure>
+            <figure><img loading="lazy" src="../../../resources/img/six-sided/sixsided5.png" alt="Six-sided sample with a central circular opening"></figure>
         </div>
 
         <h2>Process</h2>
